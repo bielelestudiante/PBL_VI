@@ -22,6 +22,10 @@ public class InputManager : MonoBehaviour
         {
             lastPosition = hit.point;
         }
+        else
+        {
+            lastPosition = Vector3.negativeInfinity; 
+        }
         return lastPosition;
     }
 }
