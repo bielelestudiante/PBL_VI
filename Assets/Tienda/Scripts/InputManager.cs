@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
         mousePos.z = sceneCamera.nearClipPlane;
         Ray ray = sceneCamera.ScreenPointToRay(mousePos);
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, 100, placementLayermask))
+        if (Physics.Raycast(ray,out hit, 100, placementLayermask))
         {
             lastPosition = hit.point;
         }
