@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            lastPosition = Vector3.negativeInfinity; 
+            lastPosition = new Vector3(0.0f, -3.0f, 0.0f);
         }
         return lastPosition;
     }
