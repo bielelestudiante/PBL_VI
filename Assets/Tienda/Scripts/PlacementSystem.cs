@@ -26,12 +26,13 @@ public class PlacementSystem : MonoBehaviour
                 int rand;
                 do
                 {
-                    rand = Random.Range(0, 10);
+                    rand = Random.Range(0, 11);
                 } while (generatedNumbers.Contains(rand));
 
                 generatedNumbers.Add(rand);
                 Debug.Log(rand);
             }
+            generatedNumbers.Clear();
         }
     }
 }
