@@ -5,13 +5,24 @@ using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
 {
+    PlayerInput playerInput;
 
-    private Vector2 _inputMovement;
-    public Vector2 InputMove { get { return _inputMovement; } }
+    InputAction Move;
 
-    private void OnMove(InputValue input)
+    void Start()
     {
-        _inputMovement = input.Get<Vector2>();
+        playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions.FindAction("Move");
+    }
 
+    void Uptade()
+    {
+
+    }
+
+    void MovePlayer()
+    {
+        Vector2 direction = moveAction.ReadValue<Vector2>();
+        transform.position += new Vector3(direction.x, 0, direction.y) * Time.deltaTime;
     }
 }

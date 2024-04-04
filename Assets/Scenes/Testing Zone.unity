@@ -235,10 +235,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888487693}
-  - component: {fileID: 888487692}
-  - component: {fileID: 888487691}
   - component: {fileID: 888487690}
   - component: {fileID: 888487689}
+  - component: {fileID: 888487694}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -302,36 +301,6 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1520161715}
---- !u!114 &888487691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888487688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 791413773e5d88c4aa0180102495ebf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &888487692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888487688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 805a32ae3f7f24a4dbcfbccee161ae19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 10
-  GroundChecker: {fileID: 0}
-  groundSphereRadius: 0.1
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &888487693
 Transform:
   m_ObjectHideFlags: 0
@@ -348,6 +317,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888487694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888487688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791413773e5d88c4aa0180102495ebf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1128982277
 GameObject:
   m_ObjectHideFlags: 0
