@@ -4,9 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
+
 public class ObjectDatabaseSO : ScriptableObject
 {
     public List<ObjectData> objectsData;
+}
+
+public enum ObjectType
+{
+    Arma,
+    Consumible,
+    Perk
 }
 
 [Serializable]
@@ -20,6 +28,8 @@ public class ObjectData
     public Vector2Int Size { get; private set; } = Vector2Int.one;
     [field: SerializeField]
     public GameObject Prefab { get; private set; }
+
     [field: SerializeField]
-    public int type { get; private set; }
+    public ObjectType type;
+    public ObjectType Type { get; private set; }
 }
