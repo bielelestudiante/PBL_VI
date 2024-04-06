@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.Reflection;
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -27,7 +29,8 @@ public class PlacementSystem : MonoBehaviour
                 do
                 {
                     rand = Random.Range(0, 11);
-                } while (generatedNumbers.Contains(rand));
+                } 
+                while (generatedNumbers.Contains(rand));
 
                 generatedNumbers.Add(rand);
                 Debug.Log(rand);
