@@ -7,7 +7,15 @@ public class InputController : MonoBehaviour
 {
     PlayerInput playerInput;
 
+    // NUEVO
+    private InputAction moveAction;
+    // NUEVO
+
     InputAction Move;
+
+    // NUEVO
+    public object InputMove { get; internal set; }
+    // NUEVO
 
     void Start()
     {

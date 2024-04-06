@@ -39,10 +39,11 @@ public class PlayerMovement : MonoBehaviour
         if (!IsGrounded())
             smoothy = 0.01f;
 
+        /* ERROR
         velocity.x = Mathf.Lerp(velocity.x, _inputController.InputMove.x * Speed, smoothy);
         velocity.y = GetGravity();
         velocity.z = Mathf.Lerp(velocity.z, _inputController.InputMove.y * Speed, smoothy);
-
+        ERROR */
 
         _lastVelocity_Y = velocity.y;
         // _characterController.SimpleMove(velocity);
