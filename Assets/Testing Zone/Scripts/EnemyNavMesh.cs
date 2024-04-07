@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,14 @@ public class EnemyNavMesh : MonoBehaviour
     [SerializeField] private Transform movePositionTransform;
 
     private NavMeshAgent navMeshAgent;
+    public Transform TrackerTransform;
+    public float sightRadius = 5.0f;
+    public bool isChasing = false;
+
+    private void Start()
+    {
+        TrackerTransform = GameObject.FindGameObjectWithTag("Tracked").transform;
+    }
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -15,6 +24,18 @@ public class EnemyNavMesh : MonoBehaviour
 
     private void Update()
     {
-        navMeshAgent.destination = movePositionTransform.position;
+        float distanceToPlayer = Vector3.Distance(transform.position, TrackerTransform.position);
+
+        if (distanceToPlayer <= sightRadius)
+        {
+            isChasing = true;
+            navMeshAgent.destination = movePositionTransform.position;
+        }
+        else if(isChasing)
+        {
+            isChasing = false;
+            navMeshAgent.ResetPath();
+        }
+        
     }
 }

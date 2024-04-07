@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 66910669}
   m_Layer: 0
   m_Name: Tracked
-  m_TagString: Untagged
+  m_TagString: Tracked
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -952,6 +952,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePositionTransform: {fileID: 66910669}
+  TrackerTransform: {fileID: 66910669}
+  sightRadius: 5
+  isChasing: 0
 --- !u!195 &921028139
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1306,6 +1309,7 @@ GameObject:
   - component: {fileID: 1384583795}
   - component: {fileID: 1384583794}
   - component: {fileID: 1384583793}
+  - component: {fileID: 1384583796}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1401,6 +1405,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384583791}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1384583796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384583791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e9decb4378c7946b4b5255d725a6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightRadius: 5
+  segments: 32
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1487182986
 GameObject:
   m_ObjectHideFlags: 0
