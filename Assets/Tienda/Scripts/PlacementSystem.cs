@@ -28,14 +28,36 @@ public class PlacementSystem : MonoBehaviour
                 int rand;
                 do
                 {
-                    rand = Random.Range(0, 11);
+                    rand = Random.Range(1, 6);
                 } 
                 while (generatedNumbers.Contains(rand));
 
-                generatedNumbers.Add(rand);
-                Debug.Log(rand);
+                generatedNumbers.Add(rand);              
             }
+            PlaceObjectsDown(generatedNumbers);
             generatedNumbers.Clear();
+            
+        }
+    }
+
+    private void PlaceObjectsDown(List<int> generatedNumbers)
+    {
+        int positionList = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                if(i == 0 && j == 0)
+                {
+
+                }
+                else
+                {
+                    Debug.Log(generatedNumbers[positionList]);
+                    Debug.Log(i + " " + j);
+                    positionList++;
+                }
+            }
         }
     }
 }
