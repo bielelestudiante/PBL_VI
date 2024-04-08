@@ -13,6 +13,9 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField]
     private Grid grid;
 
+    [SerializeField]
+    private ObjectDatabaseSO Database_tienda;
+
     private List<int> generatedNumbers = new List<int>();   
     private void Update()
     {
