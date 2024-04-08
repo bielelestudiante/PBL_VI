@@ -11,6 +11,7 @@ public class EnemyNavMesh : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     public Transform TrackerTransform;
     public float sightRadius = 5.0f;
+    public float auditionRadius = 10f;
     public bool isChasing = false;
 
     private void Start()
@@ -27,6 +28,11 @@ public class EnemyNavMesh : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, TrackerTransform.position);
 
         if (distanceToPlayer <= sightRadius)
+        {
+            isChasing = true;
+            navMeshAgent.destination = movePositionTransform.position;
+        }
+        else if(distanceToPlayer <= auditionRadius)
         {
             isChasing = true;
             navMeshAgent.destination = movePositionTransform.position;
