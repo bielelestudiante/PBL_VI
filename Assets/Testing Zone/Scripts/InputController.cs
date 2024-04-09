@@ -11,7 +11,9 @@ public class InputController : MonoBehaviour
     InputAction moveAction;
     // NUEVO
 
-    [SerializeField] float speed = 5;
+    [SerializeField] float speed = 5f;
+
+    CharacterController characterController;
 
     // NUEVO
     //public object InputMove { get; internal set; }
@@ -21,6 +23,8 @@ public class InputController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
+        characterController = GetComponent<CharacterController>();
+        moveAction.Enable();
     }
 
     void Update()
@@ -33,5 +37,15 @@ public class InputController : MonoBehaviour
         Vector2 direction = moveAction.ReadValue<Vector2>();
         transform.position += new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime;
 
+    }
+
+    void OnDisable()
+    {
+        moveAction.Disable();
+    }
+
+    void OnDestroy()
+    {
+        moveAction.Disable();
     }
 }
