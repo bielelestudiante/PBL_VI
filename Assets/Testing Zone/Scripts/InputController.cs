@@ -8,13 +8,13 @@ public class InputController : MonoBehaviour
     PlayerInput playerInput;
 
     // NUEVO
-    private InputAction moveAction;
+    InputAction moveAction;
     // NUEVO
 
-    InputAction Move;
+    [SerializeField] float speed = 5;
 
     // NUEVO
-    public object InputMove { get; internal set; }
+    //public object InputMove { get; internal set; }
     // NUEVO
 
     void Start()
@@ -23,14 +23,15 @@ public class InputController : MonoBehaviour
         moveAction = playerInput.actions.FindAction("Move");
     }
 
-    void Uptade()
+    void Update()
     {
-
+        MovePlayer();
     }
 
     void MovePlayer()
     {
         Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, direction.y) * Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime;
+
     }
 }
