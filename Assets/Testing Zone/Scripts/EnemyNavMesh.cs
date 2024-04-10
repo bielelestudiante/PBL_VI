@@ -16,7 +16,7 @@ public class EnemyNavMesh : MonoBehaviour
 
     private void Start()
     {
-        TrackerTransform = GameObject.FindGameObjectWithTag("Tracked").transform;
+        TrackerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Awake()
     {
