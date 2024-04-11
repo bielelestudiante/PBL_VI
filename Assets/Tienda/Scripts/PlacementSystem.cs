@@ -47,7 +47,8 @@ public class PlacementSystem : MonoBehaviour
 
     private void PlaceObjectsDown(List<int> generatedNumbers)
     {
-        int positionList = 0;
+        int positionList = 0;        
+
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 2; j++)
@@ -58,14 +59,20 @@ public class PlacementSystem : MonoBehaviour
                 }
                 else
                 {
-                    //GameObject gameObject = Instantiate(Database_tienda.objectsData[generatedNumbers[positionList]].Prefab);
-                    
-                    
-                    Debug.Log(generatedNumbers[positionList]);
-                    Debug.Log(i + " " + j);
+                    ObjectToSpawnIndex = (generatedNumbers[positionList]) - 1;
+                    Debug.Log(ObjectToSpawnIndex);
+
+                    GameObject gameObject = Instantiate(Database_tienda.objectsData[ObjectToSpawnIndex].Prefab);
+
+
+
+                    gameObject.transform.position = new Vector3(-i, 0, j);
+
                     positionList++;
                 }
             }
         }
+        
+
     }
 }
