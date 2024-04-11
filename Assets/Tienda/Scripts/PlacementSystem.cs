@@ -42,7 +42,8 @@ public class PlacementSystem : MonoBehaviour
                 generatedNumbers.Add(rand);              
             }
             PlaceObjectsDown(generatedNumbers);
-            generatedNumbers.Clear();            
+            generatedNumbers.Clear();
+            
         }
     }
 
