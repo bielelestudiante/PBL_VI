@@ -58,7 +58,7 @@ public class PlacementSystem : MonoBehaviour
                 }
                 else
                 {
-                    GameObject gameObject = Instantiate(Database_tienda.objectsData[generatedNumbers[positionList]].Prefab);
+                    //GameObject gameObject = Instantiate(Database_tienda.objectsData[generatedNumbers[positionList]].Prefab);
                     
                     
                     Debug.Log(generatedNumbers[positionList]);
