@@ -67,9 +67,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -589,6 +586,8 @@ MonoBehaviour:
   cellIndicator: {fileID: 936486767}
   inputManager: {fileID: 901537907}
   grid: {fileID: 816667835}
+  prefabToSpawn: {fileID: 8339420408191227743, guid: 277e94ac7c9acb349b40b890a2472a30, type: 3}
+  Database_tienda: {fileID: 11400000, guid: 2480ce6e189382e42b38bedecf95ec27, type: 2}
 --- !u!1 &1667230707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 65702495048144492, guid: f45998ab5bfd7754dab0f4a9ddce9c88, type: 3}
@@ -601,7 +600,7 @@ Camera:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1667230710
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -615,6 +614,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -737,7 +737,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 02ee16bf15bea7841abcfd6eca29c904, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c6d40b66907299742addee2077acd709, type: 2}
     - target: {fileID: 919132149155446097, guid: 02ee16bf15bea7841abcfd6eca29c904, type: 3}
