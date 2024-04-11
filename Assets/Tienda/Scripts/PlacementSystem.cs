@@ -29,6 +29,7 @@ public class PlacementSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            DestroyObjects();
             for (int i = 0; i < 5; i++)
             {
                 int rand;
@@ -41,7 +42,16 @@ public class PlacementSystem : MonoBehaviour
                 generatedNumbers.Add(rand);              
             }
             PlaceObjectsDown(generatedNumbers);
-            generatedNumbers.Clear();
+            generatedNumbers.Clear();            
+        }
+    }
+
+    private void DestroyObjects()
+    {
+        GameObject[] productObjects = GameObject.FindGameObjectsWithTag("Producto_Tienda");
+        foreach (GameObject productObject in productObjects)
+        {
+            Destroy(productObject);
         }
     }
 
@@ -63,10 +73,8 @@ public class PlacementSystem : MonoBehaviour
                     Debug.Log(ObjectToSpawnIndex);
 
                     GameObject gameObject = Instantiate(Database_tienda.objectsData[ObjectToSpawnIndex].Prefab);
-
-
-
                     gameObject.transform.position = new Vector3(-i, 0, j);
+                    gameObject.tag = "Producto_Tienda";
 
                     positionList++;
                 }
