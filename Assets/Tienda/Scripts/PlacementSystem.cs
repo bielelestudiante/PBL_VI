@@ -13,8 +13,11 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField]
     private Grid grid;
 
+    public GameObject prefabToSpawn;
+
     [SerializeField]
     private ObjectDatabaseSO Database_tienda;
+    private int ObjectToSpawnIndex = 1;
 
     private List<int> generatedNumbers = new List<int>();   
     private void Update()
@@ -39,7 +42,6 @@ public class PlacementSystem : MonoBehaviour
             }
             PlaceObjectsDown(generatedNumbers);
             generatedNumbers.Clear();
-            
         }
     }
 
@@ -56,6 +58,9 @@ public class PlacementSystem : MonoBehaviour
                 }
                 else
                 {
+                    GameObject gameObject = Instantiate(Database_tienda.objectsData[generatedNumbers[positionList]].Prefab);
+                    
+                    
                     Debug.Log(generatedNumbers[positionList]);
                     Debug.Log(i + " " + j);
                     positionList++;
