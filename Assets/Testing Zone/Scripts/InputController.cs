@@ -13,6 +13,8 @@ public class InputController : MonoBehaviour
     [SerializeField] float gravity = 9.81f; // Gravedad en m/s^2
     [SerializeField] float forceMultiplier = 0.1f; // Multiplicador de fuerza
     [SerializeField] float dashSpeed = 20f; // Velocidad del dash
+    [SerializeField] float dashDistance = 5f; // Distancia del dash
+    [SerializeField] float dashCooldown = 1f; // Tiempo de espera para volver a dashear
     [SerializeField] float dashDuration = 0.2f; // Espera del dash en segundos
 
     CharacterController characterController;
@@ -51,20 +53,28 @@ public class InputController : MonoBehaviour
         // Establece la dirección del dash hacia adelante
         Vector3 dashDirection = characterController.velocity.normalized;
 
-        // Calcula la velocidad del dash
-        Vector3 dashVelocity = dashDirection * dashSpeed;
+        // Calcula el incremento de velocidad por paso del dash
+        float dashIncrement = dashDistance / (dashDuration / Time.deltaTime);
 
-        // Aplica el impulso al jugador
-        characterController.Move(dashVelocity * Time.deltaTime);
 
-        // Espera la duración del dash
-        yield return new WaitForSeconds(dashDuration);
+        // Aplica el impulso al jugador en incrementos pequeños durante la duración del dash
+        for (float t = 0; t < dashDuration; t += Time.deltaTime)
+        {
+            Vector3 dashVelocity = dashDirection * dashIncrement;
+            characterController.Move(dashVelocity * Time.deltaTime);
+            yield return null;
+        }
 
         // Restaura la velocidad original del jugador
         speed = originalSpeed;
 
+        // Espera el tiempo de cooldown antes de permitir otro dash
+        yield return new WaitForSeconds(dashCooldown);
+
         isDashing = false;
+
     }
+
 
     void MovePlayer()
     {
