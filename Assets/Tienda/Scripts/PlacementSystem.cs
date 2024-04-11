@@ -71,11 +71,12 @@ public class PlacementSystem : MonoBehaviour
                 else
                 {
                     ObjectToSpawnIndex = (generatedNumbers[positionList]) - 1;
-                    Debug.Log(ObjectToSpawnIndex);
 
                     GameObject gameObject = Instantiate(Database_tienda.objectsData[ObjectToSpawnIndex].Prefab);
                     gameObject.transform.position = new Vector3(-i, 0, j);
                     gameObject.tag = "Producto_Tienda";
+                    DetectHover hover_script = gameObject.AddComponent<DetectHover>();
+                    MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
 
                     positionList++;
                 }
