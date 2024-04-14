@@ -16,7 +16,7 @@ MonoBehaviour:
   - <Name>k__BackingField: Botella
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
+    <Prefab>k__BackingField: {fileID: 6507891570327875405, guid: 147ecae5bc5a42a4d9d0a6cd02782407, type: 3}
     type: 0
   - <Name>k__BackingField: "Sart\xE9n"
     <ID>k__BackingField: 2
