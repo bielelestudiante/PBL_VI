@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private ObjectDatabaseSO Database_tienda;
 
+    private List<int> generatedNumbers = new List<int>();
+
     public Vector3 GetSelectedMapPosition()
     {
         Vector3 mousePos = Input.mousePosition;
