@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
 public class Lootbag : MonoBehaviour
 {
     public GameObject droppedItemPrefab;
@@ -21,3 +22,4 @@ public class Lootbag : MonoBehaviour
         }
     }
 }
+*/
