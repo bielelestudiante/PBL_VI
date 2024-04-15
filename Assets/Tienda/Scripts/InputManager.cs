@@ -17,6 +17,10 @@ public class InputManager : MonoBehaviour
     private Color originalColor;
 
     public float PlayerMoney = 10f;
+
+    [SerializeField]
+    private ObjectDatabaseSO Database_tienda;
+
     public Vector3 GetSelectedMapPosition()
     {
         Vector3 mousePos = Input.mousePosition;
