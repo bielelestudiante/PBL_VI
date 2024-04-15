@@ -91,7 +91,6 @@ public class InputController : MonoBehaviour
                 // Invierte la dirección de rotación para que el personaje mire correctamente
                 Quaternion lookRotation = Quaternion.LookRotation(-lookDirection);
                 transform.rotation = lookRotation;
-                Debug.DrawLine(transform.position, transform.position + lookDirection.normalized * 3, Color.blue);
             }
         }
     }
