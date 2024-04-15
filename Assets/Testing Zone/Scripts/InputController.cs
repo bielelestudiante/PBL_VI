@@ -36,7 +36,6 @@ public class InputController : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        RotateTowardsMouse();
 
         // Verifica si se ha presionado el botón de dash y realiza el dash si es así
         if (dashAction.triggered && !isDashing)
@@ -44,28 +43,6 @@ public class InputController : MonoBehaviour
             StartCoroutine(Dash());
         }
     }
-
-    void RotateTowardsMouse()
-    {
-        // Obtenemos la posición del ratón en la pantalla
-        Vector3 mousePosition = Mouse.current.position.ReadValue();
-        mousePosition.z = mainCamera.transform.position.y; // Ajustamos la profundidad al plano de la cámara
-
-        // Convertimos la posición del ratón de la pantalla al mundo
-        Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
-
-        // Calculamos la dirección desde el personaje hacia la posición del ratón
-        Vector3 lookDirection = worldMousePosition - transform.position;
-        lookDirection.y = 0f; // Mantenemos la misma altura del personaje
-
-        // Rotamos el personaje hacia la dirección del ratón
-        if (lookDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-        }
-    }
-
     IEnumerator Dash()
     {
         isDashing = true;
