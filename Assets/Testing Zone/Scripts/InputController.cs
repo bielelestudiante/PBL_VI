@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +17,7 @@ public class InputController : MonoBehaviour
     [SerializeField] float dashDuration = 0.2f; // Espera del dash en segundos
 
     CharacterController characterController;
+    Camera mainCamera;
 
     Vector3 velocity; // Vector de velocidad para la gravedad
     bool isDashing = false; // Bandera para controlar si se está realizando un dash
@@ -28,6 +28,7 @@ public class InputController : MonoBehaviour
         moveAction = playerInput.actions.FindAction("Move");
         dashAction = playerInput.actions.FindAction("Dash");
         characterController = GetComponent<CharacterController>();
+        mainCamera = Camera.main; // Obtenemos la cámara principal
         moveAction.Enable();
         dashAction.Enable();
     }
@@ -35,11 +36,33 @@ public class InputController : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        RotateTowardsMouse();
 
         // Verifica si se ha presionado el botón de dash y realiza el dash si es así
         if (dashAction.triggered && !isDashing)
         {
             StartCoroutine(Dash());
+        }
+    }
+
+    void RotateTowardsMouse()
+    {
+        // Obtenemos la posición del ratón en la pantalla
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        mousePosition.z = mainCamera.transform.position.y; // Ajustamos la profundidad al plano de la cámara
+
+        // Convertimos la posición del ratón de la pantalla al mundo
+        Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+
+        // Calculamos la dirección desde el personaje hacia la posición del ratón
+        Vector3 lookDirection = worldMousePosition - transform.position;
+        lookDirection.y = 0f; // Mantenemos la misma altura del personaje
+
+        // Rotamos el personaje hacia la dirección del ratón
+        if (lookDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
     }
 
@@ -56,7 +79,6 @@ public class InputController : MonoBehaviour
         // Calcula el incremento de velocidad por paso del dash
         float dashIncrement = dashDistance / (dashDuration / Time.deltaTime);
 
-
         // Aplica el impulso al jugador en incrementos pequeños durante la duración del dash
         for (float t = 0; t < dashDuration; t += Time.deltaTime)
         {
@@ -72,9 +94,7 @@ public class InputController : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
 
         isDashing = false;
-
     }
-
 
     void MovePlayer()
     {
@@ -122,4 +142,3 @@ public class InputController : MonoBehaviour
         dashAction.Disable();
     }
 }
-
