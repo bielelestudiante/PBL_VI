@@ -11,7 +11,6 @@ public class InputController : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float gravity = 9.81f; // Gravedad en m/s^2
     [SerializeField] float forceMultiplier = 0.1f; // Multiplicador de fuerza
-    [SerializeField] float dashSpeed = 20f; // Velocidad del dash
     [SerializeField] float dashDistance = 5f; // Distancia del dash
     [SerializeField] float dashCooldown = 1f; // Tiempo de espera para volver a dashear
     [SerializeField] float dashDuration = 0.2f; // Espera del dash en segundos
@@ -21,6 +20,8 @@ public class InputController : MonoBehaviour
 
     Vector3 velocity; // Vector de velocidad para la gravedad
     bool isDashing = false; // Bandera para controlar si se está realizando un dash
+    private bool isMousePressed = false;
+    private bool canRotate = true; // Indica si el personaje puede rotar hacia la dirección del ratón
 
     void Start()
     {
@@ -33,6 +34,12 @@ public class InputController : MonoBehaviour
         dashAction.Enable();
     }
 
+    IEnumerator CooldownRotation()
+    {
+        canRotate = false; // El personaje no puede rotar
+        yield return new WaitForSeconds(3f); // Espera 3 segundos
+        canRotate = true; // El personaje puede rotar nuevamente
+    }
     void Update()
     {
         MovePlayer();
@@ -42,7 +49,58 @@ public class InputController : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+
+        // Si el botón izquierdo del mouse está presionado y si el personaje puede rotar
+        if (Mouse.current.leftButton.isPressed && !isMousePressed && canRotate)
+        {
+            isMousePressed = true;
+            RotatePlayerTowardsMouse(); // Llama a la función para que el personaje mire hacia el ratón
+            StartCoroutine(CooldownRotation()); // Inicia la corrutina de tiempo de espera
+        }
+
+        // Restablece la variable isMousePressed cuando se suelta el botón izquierdo del mouse
+        if (!Mouse.current.leftButton.isPressed && isMousePressed)
+        {
+            isMousePressed = false;
+        }
     }
+
+    void RotatePlayerTowardsMouse()
+    {
+        // Obtiene la posición del ratón en la pantalla
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+
+        // Convierte la posición del ratón de la pantalla a un rayo en el espacio del juego
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+
+        // Si el rayo intersecta el plano del suelo, calcula la longitud del rayo
+        if (groundPlane.Raycast(ray, out rayLength))
+        {
+            // Obtiene el punto de intersección del rayo con el plano
+            Vector3 pointToLook = ray.GetPoint(rayLength);
+
+            // Calcula la dirección desde el personaje hacia el punto de intersección
+            Vector3 lookDirection = pointToLook - transform.position;
+            lookDirection.y = 0; // Asegura que el personaje no mire hacia arriba o abajo
+
+            // Si la dirección es válida (no es el vector cero)
+            if (lookDirection.sqrMagnitude > 0.001f)
+            {
+                // Invierte la dirección de rotación para que el personaje mire correctamente
+                Quaternion lookRotation = Quaternion.LookRotation(-lookDirection);
+                transform.rotation = lookRotation;
+                Debug.DrawLine(transform.position, transform.position + lookDirection.normalized * 3, Color.blue);
+            }
+        }
+    }
+    
+
+
+
+
+
     IEnumerator Dash()
     {
         isDashing = true;
