@@ -16,6 +16,13 @@ public class InputManager : MonoBehaviour
     private Renderer currentHighlightedObject;
     private Color originalColor;
 
+    public float PlayerMoney = 10f;
+
+    [SerializeField]
+    private ObjectDatabaseSO Database_tienda;
+
+    private List<int> generatedNumbers = new List<int>();
+
     public Vector3 GetSelectedMapPosition()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -56,6 +63,19 @@ public class InputManager : MonoBehaviour
         {
             originalColor = currentHighlightedObject.material.color;
             currentHighlightedObject.material.color = Color.yellow;
+            if (Input.GetMouseButtonDown(0))
+            {
+                BuyItem();
+                
+            }
         }
+    }
+    private void BuyItem()
+    {
+        if(PlayerMoney > 3)
+        {
+            Destroy(currentHighlightedObject);
+            PlayerMoney -= 3;
+        }        
     }
 }

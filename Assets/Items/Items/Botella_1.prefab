@@ -9,8 +9,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.103797
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.5584803
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3115513122178848598}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4091975766141432622}
   m_SourcePrefab: {fileID: 100100000, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
 --- !u!1 &6507891570327875405 stripped
 GameObject:
@@ -85,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d9a509a5c06c05c45bd889e31868c9ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,3 +114,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &4091975766141432622
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507891570327875405}
+  m_Mesh: {fileID: -2124705421725058983, guid: 6301d1cad03856a41852509f05c4eca0, type: 3}
