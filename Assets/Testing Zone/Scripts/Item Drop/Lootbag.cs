@@ -1,50 +1,51 @@
 using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Lootbag : MonoBehaviour
 {
-    public GameObject droppedItemPrefab;
-    public List<Loot> lootList = new List<Loot>();
-    
-    Loot GetDroppedItem()
+    public List<GameObject> lootPrefabList = new List<GameObject>();
+
+    void Start()
     {
-        int randomNumber = Random.Range(1, 101); // 1 - 100
-        List<Loot> possibleItems = new List<Loot>();
+        // Aquí puedes configurar manualmente la lista de prefabs de botín si lo deseas
+        // lootPrefabList.Add(prefab1);
+        // lootPrefabList.Add(prefab2);
+        // ...
+    }
 
-        foreach (Loot item in lootList)
+    GameObject GetDroppedItem()
+    {
+        if (lootPrefabList.Count > 0)
         {
-            if (randomNumber <= item.dropChance)
-            {
-                possibleItems.Add(item);
-            }
-        }
-
-        if (possibleItems.Count > 0)
-        {
-            // Selecciona un objeto aleatorio de la lista de objetos posibles
-            return possibleItems[Random.Range(0, possibleItems.Count)];
+            int randomIndex = Random.Range(0, lootPrefabList.Count);
+            return lootPrefabList[randomIndex];
         }
         else
         {
-            Debug.Log("No loot dropped");
+            Debug.LogWarning("No loot prefabs available.");
             return null;
         }
     }
 
     public void InstantiateLoot(Vector3 spawnPosition)
     {
-        Loot droppedItem = GetDroppedItem();
-        if (droppedItem != null)
+        GameObject droppedItemPrefab = GetDroppedItem();
+
+        if (droppedItemPrefab != null)
         {
-            GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
-
-            // Accede al componente de renderizado del objeto 3D y establece su modelo
-            lootGameObject.GetComponent<MeshRenderer>().material.mainTexture = droppedItem.lootObject.GetComponent<MeshRenderer>().material.mainTexture;
-
-            float dropForce = 300f;
-            Vector3 dropDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)); // Modificamos para objetos 3D
-            lootGameObject.GetComponent<Rigidbody>().AddForce(dropDirection * dropForce, ForceMode.Impulse); // Modificamos para objetos 3D
+            Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
         }
+        else
+        {
+            Debug.LogWarning("No loot prefab to instantiate.");
+        }
+    }
+
+    private void Die()
+    {
+        InstantiateLoot(transform.position); // Instanciar el botín en la posición del enemigo
+        Destroy(gameObject); // Destruir el objeto que contiene el script Lootbag
     }
 }

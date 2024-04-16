@@ -49,6 +49,15 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
+        Lootbag lootbagComponent = GetComponent<Lootbag>(); // Obtener referencia al componente Lootbag
+        if (lootbagComponent != null)
+        {
+            lootbagComponent.InstantiateLoot(transform.position); // Llamar al método InstantiateLoot con la posición actual del enemigo
+        }
+        else
+        {
+            Debug.LogError("No Lootbag component found on this GameObject or its parents.");
+        }
         Destroy(gameObject);
     }
 }
