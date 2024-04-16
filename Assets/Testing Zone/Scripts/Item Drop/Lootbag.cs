@@ -17,16 +17,34 @@ public class Lootbag : MonoBehaviour
 
     GameObject GetDroppedItem()
     {
-        if (lootPrefabList.Count > 0)
+        int randomNumber = Random.Range(1, 101); // Generar un número aleatorio entre 1 y 100
+
+        int prefabIndex; // Variable para almacenar el índice del prefab de botín seleccionado
+
+        // Asignar una probabilidad diferente a cada elemento de la lista usando un switch
+        switch (randomNumber)
         {
-            int randomIndex = Random.Range(0, lootPrefabList.Count);
-            return lootPrefabList[randomIndex];
+            case int n when (n <= 40): // 40% de probabilidad para el elemento 0
+                prefabIndex = 0;
+                break;
+            case int n when (n <= 43): // 3% de probabilidad para el elemento 1
+                prefabIndex = 1;
+                break;
+            case int n when (n <= 46): // 3% de probabilidad para el elemento 2
+                prefabIndex = 2;
+                break;
+            case int n when (n <= 49): // 3% de probabilidad para el elemento 3
+                prefabIndex = 3;
+                break;
+            case int n when (n <= 52): // 3% de probabilidad para el elemento 4
+                prefabIndex = 4;
+                break;
+            default: // Para números mayores a 52, no aparecerá nada
+                return null;
         }
-        else
-        {
-            Debug.LogWarning("No loot prefabs available.");
-            return null;
-        }
+
+        // Retornar el prefab de botín seleccionado
+        return lootPrefabList[prefabIndex];
     }
 
     public void InstantiateLoot(Vector3 spawnPosition)
