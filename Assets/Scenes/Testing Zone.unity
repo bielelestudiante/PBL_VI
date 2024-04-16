@@ -1271,8 +1271,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888487693}
-  - component: {fileID: 888487695}
-  - component: {fileID: 888487696}
   - component: {fileID: 888487698}
   - component: {fileID: 888487697}
   - component: {fileID: 888487702}
@@ -1302,30 +1300,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &888487695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888487688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2368b623aeaf7514a8d55fa2fd8c3b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &888487696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888487688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ccd90bb6172f94690c00cd66098afd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &888487697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3663,6 +3637,10 @@ PrefabInstance:
     - target: {fileID: 4160143848993558880, guid: f2775411adb0c8f4ea4748c0eaed049b, type: 3}
       propertyPath: m_Name
       value: LootPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160143848993558880, guid: f2775411adb0c8f4ea4748c0eaed049b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4315676682592769221, guid: f2775411adb0c8f4ea4748c0eaed049b, type: 3}
       propertyPath: m_RootOrder
