@@ -20,8 +20,8 @@ public class InputController : MonoBehaviour
 
     Vector3 velocity; // Vector de velocidad para la gravedad
     bool isDashing = false; // Bandera para controlar si se está realizando un dash
-    private bool isMousePressed = false;
-    private bool canRotate = true; // Indica si el personaje puede rotar hacia la dirección del ratón
+    //private bool isMousePressed = false;
+    //private bool canRotate = true; // Indica si el personaje puede rotar hacia la dirección del ratón
 
     void Start()
     {
@@ -34,35 +34,36 @@ public class InputController : MonoBehaviour
         dashAction.Enable();
     }
 
-    IEnumerator CooldownRotation()
-    {
-        canRotate = false; // El personaje no puede rotar
-        yield return new WaitForSeconds(3f); // Espera 3 segundos
-        canRotate = true; // El personaje puede rotar nuevamente
-    }
+    //IEnumerator CooldownRotation()
+    //{
+        //canRotate = false; // El personaje no puede rotar
+        //yield return new WaitForSeconds(3f); // Espera 3 segundos
+        //canRotate = true; // El personaje puede rotar nuevamente
+    //}
     void Update()
     {
         MovePlayer();
-
+        RotatePlayerTowardsMouse();
+        
         // Verifica si se ha presionado el botón de dash y realiza el dash si es así
-        if (dashAction.triggered && !isDashing)
-        {
-            StartCoroutine(Dash());
-        }
+        //if (dashAction.triggered && !isDashing)
+        //{
+            //StartCoroutine(Dash());
+        //}
 
         // Si el botón izquierdo del mouse está presionado y si el personaje puede rotar
-        if (Mouse.current.leftButton.isPressed && !isMousePressed && canRotate)
-        {
-            isMousePressed = true;
-            RotatePlayerTowardsMouse(); // Llama a la función para que el personaje mire hacia el ratón
-            StartCoroutine(CooldownRotation()); // Inicia la corrutina de tiempo de espera
-        }
+        //if (Mouse.current.leftButton.isPressed && !isMousePressed && canRotate)
+        //{
+            //isMousePressed = true;
+            //RotatePlayerTowardsMouse(); // Llama a la función para que el personaje mire hacia el ratón
+            //StartCoroutine(CooldownRotation()); // Inicia la corrutina de tiempo de espera
+        //}
 
         // Restablece la variable isMousePressed cuando se suelta el botón izquierdo del mouse
-        if (!Mouse.current.leftButton.isPressed && isMousePressed)
-        {
-            isMousePressed = false;
-        }
+        //if (!Mouse.current.leftButton.isPressed && isMousePressed)
+        //{
+            //isMousePressed = false;
+        //}
     }
 
     void RotatePlayerTowardsMouse()
@@ -89,16 +90,11 @@ public class InputController : MonoBehaviour
             if (lookDirection.sqrMagnitude > 0.001f)
             {
                 // Invierte la dirección de rotación para que el personaje mire correctamente
-                Quaternion lookRotation = Quaternion.LookRotation(-lookDirection);
+                Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
                 transform.rotation = lookRotation;
             }
         }
     }
-    
-
-
-
-
 
     IEnumerator Dash()
     {
@@ -132,14 +128,15 @@ public class InputController : MonoBehaviour
 
     void MovePlayer()
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
+        Vector2 inputDirection = moveAction.ReadValue<Vector2>();
+        Vector3 moveDirection = new Vector3(inputDirection.x, 0, inputDirection.y).normalized;
 
-        moveDirection = transform.TransformDirection(moveDirection);
+        // Mueve al personaje en la dirección de entrada sin tener en cuenta su rotación actual
         characterController.Move(moveDirection * speed * Time.deltaTime);
 
         ApplyGravity();
     }
+
 
     void ApplyGravity()
     {
