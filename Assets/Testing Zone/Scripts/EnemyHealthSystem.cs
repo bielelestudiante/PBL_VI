@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    public int maxHealth = 100; 
+    public int maxHealth = 100;
     private int currentHealth;
     public Color originalColor;
     public Color damageColor;
@@ -22,11 +22,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(20);
-        }
-        if(flashTimer > 0)
+        if (flashTimer > 0)
         {
             flashTimer -= Time.deltaTime;
             myMaterial.color = damageColor;
@@ -39,7 +35,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; 
+        currentHealth -= damage;
         if (currentHealth <= 0)
         {
             Die();
@@ -49,15 +45,6 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
-        Lootbag lootbagComponent = GetComponent<Lootbag>(); // Obtener referencia al componente Lootbag
-        if (lootbagComponent != null)
-        {
-            lootbagComponent.InstantiateLoot(transform.position); // Llamar al método InstantiateLoot con la posición actual del enemigo
-        }
-        else
-        {
-            Debug.LogError("No Lootbag component found on this GameObject or its parents.");
-        }
         Destroy(gameObject);
     }
 }
