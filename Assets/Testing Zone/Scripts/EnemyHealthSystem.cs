@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
@@ -22,6 +20,10 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(20);
+        }
         if (flashTimer > 0)
         {
             flashTimer -= Time.deltaTime;
@@ -45,6 +47,15 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
+        Lootbag lootbagComponent = GetComponent<Lootbag>(); // Obtener referencia al componente Lootbag
+        if (lootbagComponent != null)
+        {
+            lootbagComponent.InstantiateLoot(transform.position); // Llamar al método InstantiateLoot con la posición actual del enemigo
+        }
+        else
+        {
+            Debug.LogError("No Lootbag component found on this GameObject or its parents.");
+        }
         Destroy(gameObject);
     }
 }
