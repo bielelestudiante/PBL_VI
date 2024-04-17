@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    public int maxHealth = 100; 
+    public int maxHealth = 100;
     private int currentHealth;
     public Color originalColor;
     public Color damageColor;
@@ -26,7 +24,7 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             TakeDamage(20);
         }
-        if(flashTimer > 0)
+        if (flashTimer > 0)
         {
             flashTimer -= Time.deltaTime;
             myMaterial.color = damageColor;
@@ -39,7 +37,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; 
+        currentHealth -= damage;
         if (currentHealth <= 0)
         {
             Die();
