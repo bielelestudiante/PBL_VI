@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd7c76c34a376bd4f81faca3a427bc90
+guid: 0df571a08c2be8e4c96a28c26a58f300
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
-      takeName: Scene
-      internalID: -623603649343465320
-      firstFrame: 1
-      lastFrame: 250
+      name: mixamo.com
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -58,7 +58,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

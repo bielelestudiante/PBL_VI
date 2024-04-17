@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dfa6b7298cf77044d86d9e7c0d016d30
+guid: 5d7379253e4065345a8825f895ec3404
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,18 +31,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fumar
-      takeName: Scene
-      internalID: -623603649343465320
-      firstFrame: 1
-      lastFrame: 250
+      name: mixamo.com
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -58,7 +58,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
