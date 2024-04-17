@@ -18,6 +18,7 @@ public class InputController : MonoBehaviour
     CharacterController characterController;
     Camera mainCamera;
 
+    private Animator anim;
     Vector3 velocity; // Vector de velocidad para la gravedad
     bool isDashing = false; // Bandera para controlar si se está realizando un dash
     //private bool isMousePressed = false;
@@ -32,6 +33,7 @@ public class InputController : MonoBehaviour
         mainCamera = Camera.main; // Obtenemos la cámara principal
         moveAction.Enable();
         dashAction.Enable();
+        anim= GetComponent<Animator>();
     }
 
     //IEnumerator CooldownRotation()
@@ -135,6 +137,9 @@ public class InputController : MonoBehaviour
         characterController.Move(moveDirection * speed * Time.deltaTime);
 
         ApplyGravity();
+
+        anim.SetFloat("VelX", moveDirection.x);
+        anim.SetFloat("VelY", moveDirection.z);
     }
 
 
