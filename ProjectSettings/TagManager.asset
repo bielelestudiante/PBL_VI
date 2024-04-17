@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tracked
   - Producto_Tienda
+  - Loot
   layers:
   - Default
   - TransparentFX
