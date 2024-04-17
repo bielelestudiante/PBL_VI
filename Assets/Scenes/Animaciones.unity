@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4765.5415, g: 3425.0298, b: 3404.8755, a: 1}
+  m_IndirectSpecularColor: {r: 4771.364, g: 3429.0083, b: 3406.8677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -859,7 +859,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 6.34
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -883,13 +883,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895630516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27999356, y: -0.3218478, z: 0.10025403, w: 0.89886975}
-  m_LocalPosition: {x: 21.32, y: 22.83, z: -25.13}
+  m_LocalRotation: {x: 0.2973999, y: 0, z: 0, w: 0.95475304}
+  m_LocalPosition: {x: 6.36, y: 4.99, z: -5.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 34.603, y: 0, z: 0}
 --- !u!1 &2077009214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
@@ -1029,6 +1029,7 @@ MonoBehaviour:
   dashDistance: 5
   dashCooldown: 1
   dashDuration: 0.2
+  rotationSpeed: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
