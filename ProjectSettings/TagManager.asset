@@ -8,6 +8,7 @@ TagManager:
   - Producto_Tienda
   - Loot
   - ObjetoAudio
+  - Screamer
   layers:
   - Default
   - TransparentFX
