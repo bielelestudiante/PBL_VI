@@ -258,10 +258,10 @@
                 {
                     "name": "",
                     "id": "6a3507e0-8f09-4e8e-9c64-2ea3ba933c17",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Pegar",
                     "isComposite": false,
                     "isPartOfComposite": false

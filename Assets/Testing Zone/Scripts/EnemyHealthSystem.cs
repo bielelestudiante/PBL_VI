@@ -20,10 +20,6 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(20);
-        }
         if (flashTimer > 0)
         {
             flashTimer -= Time.deltaTime;

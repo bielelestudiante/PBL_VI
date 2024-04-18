@@ -7,6 +7,9 @@ public class InputController : MonoBehaviour
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction dashAction;
+    InputAction pegarAction;
+
+    PlayerCombat playerCombat;
 
     [SerializeField] float speed = 5f;
     [SerializeField] float gravity = 9.81f; // Gravedad en m/s^2
@@ -22,6 +25,9 @@ public class InputController : MonoBehaviour
     private Animator anim;
     Vector3 velocity; // Vector de velocidad para la gravedad
     bool isDashing = false; // Bandera para controlar si se está realizando un dash
+    bool isPegando = false;
+    internal static object instance;
+
     //private bool isMousePressed = false;
     //private bool canRotate = true; // Indica si el personaje puede rotar hacia la dirección del ratón
 
@@ -30,11 +36,14 @@ public class InputController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
         dashAction = playerInput.actions.FindAction("Dash");
+        pegarAction = playerInput.actions.FindAction("Pegar");
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main; // Obtenemos la cámara principal
         moveAction.Enable();
         dashAction.Enable();
         anim= GetComponent<Animator>();
+
+        playerCombat = GetComponent<PlayerCombat>();
     }
 
     //IEnumerator CooldownRotation()
@@ -53,20 +62,26 @@ public class InputController : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-    // Si el botón izquierdo del mouse está presionado y si el personaje puede rotar
-    //if (Mouse.current.leftButton.isPressed && !isMousePressed && canRotate)
-    //{
-    //isMousePressed = true;
-    //RotatePlayerTowardsMouse(); // Llama a la función para que el personaje mire hacia el ratón
-    //StartCoroutine(CooldownRotation()); // Inicia la corrutina de tiempo de espera
-    //}
+        if (pegarAction.triggered && !isPegando)
+        {
+            // Llamar a la función de ataque del PlayerCombat
+            playerCombat.Attack();
+        }
 
-    // Restablece la variable isMousePressed cuando se suelta el botón izquierdo del mouse
-    //if (!Mouse.current.leftButton.isPressed && isMousePressed)
-    //{
-    //isMousePressed = false;
-    //}
-}
+        // Si el botón izquierdo del mouse está presionado y si el personaje puede rotar
+        //if (Mouse.current.leftButton.isPressed && !isMousePressed && canRotate)
+        //{
+        //isMousePressed = true;
+        //RotatePlayerTowardsMouse(); // Llama a la función para que el personaje mire hacia el ratón
+        //StartCoroutine(CooldownRotation()); // Inicia la corrutina de tiempo de espera
+        //}
+
+        // Restablece la variable isMousePressed cuando se suelta el botón izquierdo del mouse
+        //if (!Mouse.current.leftButton.isPressed && isMousePressed)
+        //{
+        //isMousePressed = false;
+        //}
+    }
 
     //void RotatePlayerTowardsMouse()
     //{
@@ -125,11 +140,6 @@ public class InputController : MonoBehaviour
         anim.SetFloat("VelX", moveDirection.x);
         anim.SetFloat("VelY", moveDirection.z);
     }
-
-
-
-
-
 
     IEnumerator Dash()
     {
