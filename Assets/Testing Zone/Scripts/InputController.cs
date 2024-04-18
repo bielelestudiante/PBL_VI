@@ -103,8 +103,21 @@ public class InputController : MonoBehaviour
         Vector2 inputDirection = moveAction.ReadValue<Vector2>();
         Vector3 moveDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
 
-        // Mueve al personaje en la dirección de entrada basada en las teclas de dirección o el joystick
-        characterController.Move(moveDirection * speed * Time.deltaTime);
+        // Si hay entrada de movimiento
+        if (moveDirection.magnitude > 0.1f)
+        {
+            // Calcula la rotación hacia la dirección del movimiento
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+
+            // Interpola suavemente la rotación actual hacia la rotación objetivo
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+
+            // Normaliza el vector de movimiento para evitar la velocidad adicional
+            moveDirection.Normalize();
+
+            // Mueve al personaje en la dirección de entrada basada en las teclas de dirección o el joystick
+            characterController.Move(moveDirection * speed * Time.deltaTime);
+        }
 
         ApplyGravity();
 
@@ -112,6 +125,8 @@ public class InputController : MonoBehaviour
         anim.SetFloat("VelX", moveDirection.x);
         anim.SetFloat("VelY", moveDirection.z);
     }
+
+
 
 
 
