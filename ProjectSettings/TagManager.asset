@@ -7,6 +7,7 @@ TagManager:
   - Tracked
   - Producto_Tienda
   - Loot
+  - ObjetoAudio
   layers:
   - Default
   - TransparentFX
