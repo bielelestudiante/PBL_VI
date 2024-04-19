@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> inventoryList = new List<GameObject>();
 
-    // Update is called once per frame
-    void Update()
+    // Método para agregar un objeto al inventario
+    public void AddToInventory(GameObject item)
     {
-        
+        inventoryList.Add(item);
+        Debug.Log("Item added to inventory: " + item.name);
+        item.transform.parent = transform; // Para mantener el objeto dentro del inventario
+        item.SetActive(false); // Desactivar el objeto en el inventario
     }
 }

@@ -2338,6 +2338,7 @@ GameObject:
   - component: {fileID: 888487706}
   - component: {fileID: 888487703}
   - component: {fileID: 888487704}
+  - component: {fileID: 888487707}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2505,6 +2506,19 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &888487707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888487688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf822863144cfcc47af190d0cc41f749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryList: []
 --- !u!1 &892040429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,6 +3834,7 @@ MonoBehaviour:
   - {fileID: 5033252748834819443, guid: 827691e208121774ab1dce57cf998fa6, type: 3}
   - {fileID: 5208789204620927208, guid: 28732ece288a7634986ed5965631ed1a, type: 3}
   - {fileID: 4585009462750722733, guid: f3fbcd7994cc8834fa2973b5ffe06efe, type: 3}
+  inventory: {fileID: 888487707}
 --- !u!4 &1487997899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3813116756625448983, guid: f3fbcd7994cc8834fa2973b5ffe06efe, type: 3}
