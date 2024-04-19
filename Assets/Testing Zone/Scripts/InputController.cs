@@ -145,24 +145,29 @@ public class InputController : MonoBehaviour
     {
         isDashing = true;
 
-        // Guarda la velocidad actual del jugador para restaurarla después del dash
+        // Guardar la velocidad actual del jugador para restaurarla después del dash
         float originalSpeed = speed;
 
-        // Establece la dirección del dash hacia adelante
-        Vector3 dashDirection = characterController.velocity.normalized;
+        // Obtener la dirección en la que el jugador está mirando para el dash
+        Vector3 dashDirection = transform.forward;
 
-        // Calcula el incremento de velocidad por paso del dash
-        float dashIncrement = dashDistance / (dashDuration / Time.deltaTime);
+        // Puedes ajustar la velocidad del dash según tus necesidades
+        float dashSpeed = dashDistance / dashDuration;
 
-        // Aplica el impulso al jugador en incrementos pequeños durante la duración del dash
-        for (float t = 0; t < dashDuration; t += Time.deltaTime)
+        float dashTime = 0f;
+
+        while (dashTime < dashDuration)
         {
-            Vector3 dashVelocity = dashDirection * dashIncrement;
-            characterController.Move(dashVelocity * Time.deltaTime);
+            // Mueve al jugador en la dirección del dash con la velocidad del dash
+            characterController.Move(dashDirection * dashSpeed * Time.deltaTime);
+
+            // Actualiza el tiempo del dash
+            dashTime += Time.deltaTime;
+
             yield return null;
         }
 
-        // Restaura la velocidad original del jugador
+        // Restaurar la velocidad original del jugador
         speed = originalSpeed;
 
         // Espera el tiempo de cooldown antes de permitir otro dash
@@ -170,6 +175,7 @@ public class InputController : MonoBehaviour
 
         isDashing = false;
     }
+
 
 
     void ApplyGravity()
