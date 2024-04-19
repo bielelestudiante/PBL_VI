@@ -9,7 +9,7 @@ public class Lootbag : MonoBehaviour
 
     void Start()
     {
-        // Aquí puedes configurar manualmente la lista de prefabs de botín si lo deseas
+        // Aquï¿½ puedes configurar manualmente la lista de prefabs de botï¿½n si lo deseas
         // lootPrefabList.Add(prefab1);
         // lootPrefabList.Add(prefab2);
         // ...
@@ -17,9 +17,9 @@ public class Lootbag : MonoBehaviour
 
     GameObject GetDroppedItem()
     {
-        int randomNumber = Random.Range(1, 101); // Generar un número aleatorio entre 1 y 100
+        int randomNumber = Random.Range(1, 101); // Generar un nï¿½mero aleatorio entre 1 y 100
 
-        int prefabIndex; // Variable para almacenar el índice del prefab de botín seleccionado
+        int prefabIndex; // Variable para almacenar el ï¿½ndice del prefab de botï¿½n seleccionado
 
         // Asignar una probabilidad diferente a cada elemento de la lista usando un switch
         switch (randomNumber)
@@ -39,11 +39,11 @@ public class Lootbag : MonoBehaviour
             case int n when (n <= 52): // 3% de probabilidad para el elemento 4
                 prefabIndex = 4;
                 break;
-            default: // Para números mayores a 52, no aparecerá nada
+            default: // Para nï¿½meros mayores a 52, no aparecerï¿½ nada
                 return null;
         }
 
-        // Retornar el prefab de botín seleccionado
+        // Retornar el prefab de botï¿½n seleccionado
         return lootPrefabList[prefabIndex];
     }
 
@@ -63,7 +63,7 @@ public class Lootbag : MonoBehaviour
 
     private void Die()
     {
-        InstantiateLoot(transform.position); // Instanciar el botín en la posición del enemigo
+        InstantiateLoot(transform.position); // Instanciar el botï¿½n en la posiciï¿½n del enemigo
         Destroy(gameObject); // Destruir el objeto que contiene el script Lootbag
     }
 }

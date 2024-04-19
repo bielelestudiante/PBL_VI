@@ -2276,7 +2276,6 @@ GameObject:
   - component: {fileID: 888487702}
   - component: {fileID: 888487706}
   - component: {fileID: 888487703}
-  - component: {fileID: 888487705}
   - component: {fileID: 888487704}
   m_Layer: 0
   m_Name: Player
@@ -2428,19 +2427,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &888487705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888487688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7237826d0ba984a40a4a7487c4f325eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1070685516}
 --- !u!114 &888487706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2633,7 +2619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921028137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.62, y: -0.5, z: -0.6}
+  m_LocalPosition: {x: 3.28, y: -0.5, z: 7.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
