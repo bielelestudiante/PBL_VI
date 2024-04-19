@@ -148,30 +148,26 @@ public class InputController : MonoBehaviour
         // Guardar la velocidad actual del jugador para restaurarla después del dash
         float originalSpeed = speed;
 
-        // Obtener la dirección en la que el jugador está mirando para el dash
-        Vector3 dashDirection = transform.forward;
+        // Desactivar las acciones de movimiento al comenzar el dash
+        moveAction.Disable();
 
-        // Puedes ajustar la velocidad del dash según tus necesidades
-        float dashSpeed = dashDistance / dashDuration;
+        // Activar la animación de Esquivar al comenzar el dash
+        anim.SetBool("Esquivar", true);
 
-        float dashTime = 0f;
-
-        while (dashTime < dashDuration)
-        {
-            // Mueve al jugador en la dirección del dash con la velocidad del dash
-            characterController.Move(dashDirection * dashSpeed * Time.deltaTime);
-
-            // Actualiza el tiempo del dash
-            dashTime += Time.deltaTime;
-
-            yield return null;
-        }
+        // Espera a que termine la animación de Esquivar
+        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
 
         // Restaurar la velocidad original del jugador
         speed = originalSpeed;
 
+        // Desactivar la animación de Esquivar al finalizar el dash
+        anim.SetBool("Esquivar", false);
+
         // Espera el tiempo de cooldown antes de permitir otro dash
         yield return new WaitForSeconds(dashCooldown);
+
+        // Reactivar las acciones de movimiento al finalizar el dash
+        moveAction.Enable();
 
         isDashing = false;
     }
