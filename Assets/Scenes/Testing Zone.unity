@@ -94,7 +94,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 73bebc4d3d9b8e147aab667fadadd718, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: d54b201696f97704a89075f52bc00bd4, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 4c2a0f3c9f2d4024a8334b56dc9eb32d, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e378145f3685131408d52be34b1daefc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4468
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e378145f3685131408d52be34b1daefc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -421,12 +421,16 @@ PrefabInstance:
       value: 47.52
       objectReference: {fileID: 0}
     - target: {fileID: -4145780216285600630, guid: e378145f3685131408d52be34b1daefc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1623482
+      objectReference: {fileID: 0}
+    - target: {fileID: -4145780216285600630, guid: e378145f3685131408d52be34b1daefc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2693791
+      value: -3.23
       objectReference: {fileID: 0}
     - target: {fileID: -4145780216285600630, guid: e378145f3685131408d52be34b1daefc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.911787
+      value: 17.08
       objectReference: {fileID: 0}
     - target: {fileID: -4145780216285600630, guid: e378145f3685131408d52be34b1daefc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1877,7 +1881,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212238920}
-  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
+  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
   m_LocalPosition: {x: 84.7, y: 26.14, z: -36.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2335,7 +2339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 536.89526
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2457,9 +2461,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 170.89905
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -2499,10 +2503,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0.33333334, z: 0.33333334, w: 0.3}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -2625,7 +2629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 1146.6815
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2747,9 +2751,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 365.00003
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -2789,10 +2793,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 1.193922e-39, z: 4.567e-42, w: 1.7591663e+22}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3213,7 +3217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 1511.1359
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -3335,9 +3339,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 481.00943
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -3377,10 +3381,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 3.122509e-39, z: 4.511e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5269,7 +5273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 280.37305
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -5391,9 +5395,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 89.24551
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -5433,10 +5437,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -6218,7 +6222,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520161713}
-  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
+  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
   m_LocalPosition: {x: 84.7, y: 26.14, z: -36.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6303,7 +6307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 357.03
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -6322,7 +6326,7 @@ MonoBehaviour:
   m_ShapeRadius: 0.025
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 1
+  m_CustomSpotLightShadowCone: 30
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -6425,9 +6429,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 113.64617
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -6467,10 +6471,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 4.867384e-39, z: 9.785e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7202,7 +7206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 1326.5469
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -7324,9 +7328,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 422.25296
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -7366,10 +7370,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 3172.3918, z: 55.832287, w: 7.374581e-39}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7382,7 +7386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804116302}
   m_LocalRotation: {x: 0.6459985, y: 0.28755182, z: -0.28755182, w: 0.6459985}
-  m_LocalPosition: {x: 84.386, y: 4.7424, z: -0.91572}
+  m_LocalPosition: {x: 84.41, y: 4.7424, z: -0.94}
   m_LocalScale: {x: 0.8997743, y: 0.8997743, z: 0.8997743}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7847,7 +7851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 1326.5469
+  m_Intensity: 1448.031
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -7969,9 +7973,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.8423216, b: 0.75711995, a: 1}
-  m_Intensity: 422.25296
+  m_Intensity: 440.78635
   m_Range: 15.84
-  m_SpotAngle: 120
+  m_SpotAngle: 123
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -8011,10 +8015,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5.15
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 1.5985219e-32, z: 2.2e-44, w: 2.4405384e-30}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
