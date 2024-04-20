@@ -14,9 +14,9 @@ public class InputController : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float gravity = 9.81f; // Gravedad en m/s^2
     [SerializeField] float forceMultiplier = 0.1f; // Multiplicador de fuerza
-    [SerializeField] float dashDistance = 5f; // Distancia del dash
+    //[SerializeField] float dashDistance = 5f; // Distancia del dash
     [SerializeField] float dashCooldown = 1f; // Tiempo de espera para volver a dashear
-    [SerializeField] float dashDuration = 0.2f; // Espera del dash en segundos
+    //[SerializeField] float dashDuration = 0.2f; // Espera del dash en segundos
     [SerializeField] float rotationSpeed = 10f;
 
     CharacterController characterController;
@@ -26,6 +26,7 @@ public class InputController : MonoBehaviour
     Vector3 velocity; // Vector de velocidad para la gravedad
     bool isDashing = false; // Bandera para controlar si se está realizando un dash
     bool isPegando = false;
+    bool isMoving = false;
     internal static object instance;
 
     //private bool isMousePressed = false;
@@ -121,6 +122,9 @@ public class InputController : MonoBehaviour
         // Si hay entrada de movimiento
         if (moveDirection.magnitude > 0.1f)
         {
+            // Actualiza la variable isMoving
+            isMoving = true;
+
             // Calcula la rotación hacia la dirección del movimiento
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
 
@@ -133,6 +137,11 @@ public class InputController : MonoBehaviour
             // Mueve al personaje en la dirección de entrada basada en las teclas de dirección o el joystick
             characterController.Move(moveDirection * speed * Time.deltaTime);
         }
+        else
+        {
+            // Actualiza la variable isMoving
+            isMoving = false;
+        }
 
         ApplyGravity();
 
@@ -141,12 +150,12 @@ public class InputController : MonoBehaviour
         anim.SetFloat("VelY", moveDirection.z);
     }
 
+
     IEnumerator Dash()
     {
-        isDashing = true;
+        if (isDashing || !isMoving) yield break; // Si ya se está realizando un dash o el jugador no está en movimiento, sale del método
 
-        // Guardar la velocidad actual del jugador para restaurarla después del dash
-        float originalSpeed = speed;
+        isDashing = true; // Indica que se está realizando un dash
 
         // Desactivar las acciones de movimiento al comenzar el dash
         moveAction.Disable();
@@ -157,20 +166,21 @@ public class InputController : MonoBehaviour
         // Espera a que termine la animación de Esquivar
         yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
 
-        // Restaurar la velocidad original del jugador
-        speed = originalSpeed;
-
         // Desactivar la animación de Esquivar al finalizar el dash
         anim.SetBool("Esquivar", false);
 
         // Espera el tiempo de cooldown antes de permitir otro dash
         yield return new WaitForSeconds(dashCooldown);
 
-        // Reactivar las acciones de movimiento al finalizar el dash
-        moveAction.Enable();
-
         isDashing = false;
     }
+    public void OnDashAnimationEnd()
+    {
+        // Reactivar las acciones de movimiento al finalizar el dash
+        moveAction.Enable();
+    }
+
+
 
 
 
