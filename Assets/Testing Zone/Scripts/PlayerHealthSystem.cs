@@ -11,14 +11,20 @@ public class PlayerHealthSystem : MonoBehaviour
     public Color damageColor;
     public float damageFlashTime = 0.2f;
 
+    public HealthBar healthBar;
+
     private Material myMaterial;
     private float flashTimer;
+
+    public bool isInvincible = false;
 
     private void Start()
     {
         currentHealth = maxHealth;
         myMaterial = GetComponent<Renderer>().material;
         originalColor = myMaterial.color;
+
+        healthBar.SetMaxHealth(maxHealth); 
     }
 
     private void Update()
@@ -27,7 +33,7 @@ public class PlayerHealthSystem : MonoBehaviour
         {
             PlayerTakesDamage(25);
         }
-        if(flashTimer > 0)
+        if (flashTimer > 0)
         {
             flashTimer -= Time.deltaTime;
             myMaterial.color = damageColor;
@@ -38,14 +44,31 @@ public class PlayerHealthSystem : MonoBehaviour
         }
     }
 
-    private void PlayerTakesDamage(int damage)
+    public void PlayerTakesDamage(int damage)
     {
-        currentHealth -= damage;
-        if(currentHealth <= 0)
+        if (!isInvincible)
+        {
+            currentHealth -= damage;
+        }
+
+        if (currentHealth <= 0)
         {
             Die();
         }
         flashTimer = damageFlashTime;
+        if (!isInvincible) // Check invulnerability after damage
+        {
+            StartCoroutine(InvulnerabilityTimer());
+        }
+        healthBar.SetHealth(currentHealth); 
+    }
+
+    IEnumerator InvulnerabilityTimer()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(5.0f);
+        isInvincible = false;
+        Debug.Log("isInvincible");
     }
 
     private void Die()

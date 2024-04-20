@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Image barraDeVidaDer;
 
-    public Image barraDeVidaIzq;
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
 
-    public float vidaActual;
-
-    public float vidaMaxima;
-
-
-    private void Update()
+    public void SetMaxHealth(int health)
     {
-        barraDeVidaDer.fillAmount = vidaActual / vidaMaxima;
-        barraDeVidaIzq.fillAmount = vidaActual / vidaMaxima;
+        slider.maxValue = health;
+        slider.value = health;
+
+        //fill.color = gradient.Evaluate(1f);
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
+        //fill.color = gradient.Evaluate(1f);
     }
 }
