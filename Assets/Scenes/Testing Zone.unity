@@ -6036,9 +6036,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e9decb4378c7946b4b5255d725a6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRadius: 5
-  segments: 32
-  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  DetectionRange: 7
+  FieldOfView: 120
+  WhatIsOpaque:
+    serializedVersion: 2
+    m_Bits: 0
+  _player: {fileID: 0}
 --- !u!114 &1384583797
 MonoBehaviour:
   m_ObjectHideFlags: 0

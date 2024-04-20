@@ -4,25 +4,61 @@ using UnityEngine;
 
 public class SightGizmo : MonoBehaviour
 {
-    public float sightRadius = 5.0f;
-    public int segments = 32;
-    public Color gizmoColor = Color.red;
+    public float DetectionRange;
+    public float FieldOfView;
+    public LayerMask WhatIsOpaque;
+
+    public Transform _player;
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = gizmoColor;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, DetectionRange);
 
-        Vector3 center = transform.position;
-        float angle = 0;
-        float step = Mathf.PI * 2 / segments;
+        var direction = Quaternion.AngleAxis(FieldOfView / 2, transform.up) * transform.forward;
+        Gizmos.DrawRay(transform.position, direction * DetectionRange);
 
-        for (int i = 0; i < segments; i++)
+        var direction2 = Quaternion.AngleAxis(-FieldOfView / 2, transform.up) * transform.forward;
+        Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
+
+        Gizmos.color = Color.white;
+    }
+    void Update()
+    {
+        if (IsPlayerClose())
         {
-            Vector3 prevPoint = new Vector3(Mathf.Cos(angle) * sightRadius, 0, Mathf.Sin(angle) * sightRadius);
-            angle += step;
-            Vector3 curPoint = new Vector3(Mathf.Cos(angle) * sightRadius, 0, Mathf.Sin(angle) * sightRadius);
-
-            Gizmos.DrawLine(center + prevPoint, center + curPoint);
+            if (IsInFieldOfView())
+            {
+                Debug.Log(CanSeePlayer());
+            }
         }
+    }
+
+    private object CanSeePlayer()
+    {
+        Vector3 direction = _player.position - transform.position;
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, direction, out hit, DetectionRange, WhatIsOpaque))
+        {
+            if (hit.collider.transform == _player)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsInFieldOfView()
+    {
+        Vector3 EP = _player.position - transform.position;
+        float angle = Vector3.Angle(EP, transform.forward);
+
+        return angle < FieldOfView / 2;
+    }
+
+    private bool IsPlayerClose()
+    {
+        return Vector3.Distance(transform.position, _player.position) < DetectionRange;
     }
 }
