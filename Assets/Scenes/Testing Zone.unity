@@ -6097,6 +6097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb73984094eb2c4fa1b6b992c4d4c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootPrefabList: []
+  inventory: {fileID: 0}
 --- !u!1 &1394493909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6405613921942424405, guid: e378145f3685131408d52be34b1daefc, type: 3}
