@@ -1961,7 +1961,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212238920}
-  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
+  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
   m_LocalPosition: {x: 84.7, y: 26.14, z: -36.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4465,6 +4465,7 @@ MonoBehaviour:
   barraDeDrogaIzq: {fileID: 722345518}
   drogaActual: 100
   drogaMaxima: 100
+  decayRate: 1.5
 --- !u!1 &848778316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5932609013714631055, guid: e378145f3685131408d52be34b1daefc, type: 3}
@@ -4672,7 +4673,7 @@ MonoBehaviour:
   attackRange: 1.5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &888487707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4685,7 +4686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf822863144cfcc47af190d0cc41f749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryList: []
 --- !u!1 &892040429
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,7 +6637,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520161713}
-  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
+  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
   m_LocalPosition: {x: 84.7, y: 26.14, z: -36.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6975,8 +6975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7237826d0ba984a40a4a7487c4f325eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1070685516}
-  score: 0
 --- !u!23 &1575527748
 MeshRenderer:
   m_ObjectHideFlags: 0
