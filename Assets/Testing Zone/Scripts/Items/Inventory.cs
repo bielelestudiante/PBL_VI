@@ -4,14 +4,33 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<GameObject> inventoryList = new List<GameObject>();
+    private Dictionary<int, Loot> inventoryItems = new Dictionary<int, Loot>();
+    private int nextItemId = 1; // Para asignar IDs únicos
 
-    // Método para agregar un objeto al inventario
-    public void AddToInventory(GameObject item)
+    public void AddItemToInventory(Loot loot)
     {
-        inventoryList.Add(item);
-        Debug.Log("Item added to inventory: " + item.name);
-        item.transform.parent = transform; // Para mantener el objeto dentro del inventario
-        item.SetActive(false); // Desactivar el objeto en el inventario
+        // Asignar un ID único al loot
+        loot.id = nextItemId;
+        nextItemId++;
+
+        // Guardar el loot en el inventario usando su ID como clave
+        inventoryItems.Add(loot.id, loot);
+
+        Debug.Log("Added item to inventory: " + loot.lootName);
+    }
+
+    public void RetrieveItemFromInventory(int itemId)
+    {
+        if (inventoryItems.ContainsKey(itemId))
+        {
+            Loot retrievedLoot = inventoryItems[itemId];
+            Debug.Log("Retrieved Item: " + retrievedLoot.lootName);
+
+            // Aquí puedes hacer lo que necesites con el loot recuperado
+        }
+        else
+        {
+            Debug.LogWarning("Item with ID " + itemId + " not found in inventory.");
+        }
     }
 }
