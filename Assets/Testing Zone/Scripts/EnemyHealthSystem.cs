@@ -29,6 +29,10 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             myMaterial.color = originalColor;
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Die();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -40,9 +44,11 @@ public class EnemyHealthSystem : MonoBehaviour
         }
         flashTimer = damageFlashTime;
     }
+    
 
     private void Die()
     {
+        Destroy(gameObject);
         Lootbag lootbagComponent = GetComponent<Lootbag>(); // Obtener referencia al componente Lootbag
         if (lootbagComponent != null)
         {
@@ -51,7 +57,6 @@ public class EnemyHealthSystem : MonoBehaviour
         else
         {
             Debug.LogError("No Lootbag component found on this GameObject or its parents.");
-        }
-        Destroy(gameObject);
+        }        
     }
 }
