@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class EnemyHealthSystem : MonoBehaviour
     private Material myMaterial;
     private float flashTimer;
 
-    // Referencia al EnemySpawner
-    private EnemySpawner spawner;
+    // Evento para notificar cuando un enemigo es destruido
+    public event Action OnEnemyDestroyed;
 
     void Start()
     {
@@ -20,8 +21,16 @@ public class EnemyHealthSystem : MonoBehaviour
         myMaterial = GetComponent<Renderer>().material;
         originalColor = myMaterial.color;
 
-        // Obtener referencia al EnemySpawner
-        spawner = FindObjectOfType<EnemySpawner>();
+        // Obtener referencia al EnemySpawner usando FindObjectOfType
+        EnemySpawner spawner = FindFirstObjectByType<EnemySpawner>();
+        if (spawner != null)
+        {
+            OnEnemyDestroyed += spawner.EnemyDestroyed;
+        }
+        else
+        {
+            Debug.LogError("EnemySpawner not found!");
+        }
     }
 
     private void Update()
@@ -54,13 +63,13 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        Debug.Log("Enemy died.");
 
-        // Notificar al EnemySpawner que un enemigo ha sido destruido
-        if (spawner != null)
-        {
-            spawner.EnemyDestroyed();
-        }
+        // Llamar al evento OnEnemyDestroyed
+        OnEnemyDestroyed?.Invoke();
+
+        // Destruir recursivamente el GameObject y todos sus hijos
+        DestroyRecursive(gameObject);
 
         // Código original para instanciar Lootbag
         Lootbag lootbagComponent;
@@ -74,12 +83,12 @@ public class EnemyHealthSystem : MonoBehaviour
         }
     }
 
-    // Método opcional para ser llamado manualmente si el EnemySpawner necesita saber
-    public void NotifyEnemyDestroyed()
+    private void DestroyRecursive(GameObject obj)
     {
-        if (spawner != null)
+        foreach (Transform child in obj.transform)
         {
-            spawner.EnemyDestroyed();
+            DestroyRecursive(child.gameObject);
         }
+        Destroy(obj);
     }
 }
