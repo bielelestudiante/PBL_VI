@@ -10,6 +10,11 @@ public class SightGizmo : MonoBehaviour
 
     public Transform _player;
 
+    private void Start()
+    {
+        _player = GameObject.FindWithTag("Player").transform;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

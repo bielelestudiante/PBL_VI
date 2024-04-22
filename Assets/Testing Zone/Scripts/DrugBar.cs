@@ -11,7 +11,9 @@ public class DrugBar : MonoBehaviour
     public float drogaActual;
     public float drogaMaxima;
 
-    public float decayRate = 1.5f;
+    public float decayRate = 10f;
+
+    private GameObject playerObject;
 
 
     private void Update()
@@ -20,5 +22,11 @@ public class DrugBar : MonoBehaviour
 
         barraDeDrogaDer.fillAmount = drogaActual / drogaMaxima;
         barraDeDrogaIzq.fillAmount = drogaActual / drogaMaxima;
+
+        if(drogaActual <= 0) 
+        { 
+            playerObject = GameObject.FindGameObjectWithTag("Player");
+            playerObject.GetComponent<PlayerHealthSystem>().PlayerTakesDamage(10);
+        }
     }
 }
