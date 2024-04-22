@@ -11,11 +11,17 @@ public class EnemyHealthSystem : MonoBehaviour
     private Material myMaterial;
     private float flashTimer;
 
+    // Referencia al EnemySpawner
+    private EnemySpawner spawner;
+
     void Start()
     {
         currentHealth = maxHealth;
         myMaterial = GetComponent<Renderer>().material;
         originalColor = myMaterial.color;
+
+        // Obtener referencia al EnemySpawner
+        spawner = FindObjectOfType<EnemySpawner>();
     }
 
     private void Update()
@@ -29,6 +35,7 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             myMaterial.color = originalColor;
         }
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             Die();
@@ -44,19 +51,35 @@ public class EnemyHealthSystem : MonoBehaviour
         }
         flashTimer = damageFlashTime;
     }
-    
 
     private void Die()
     {
         Destroy(gameObject);
-        Lootbag lootbagComponent = GetComponent<Lootbag>(); // Obtener referencia al componente Lootbag
-        if (lootbagComponent != null)
+
+        // Notificar al EnemySpawner que un enemigo ha sido destruido
+        if (spawner != null)
         {
-            lootbagComponent.InstantiateLoot(transform.position); // Llamar al método InstantiateLoot con la posición actual del enemigo
+            spawner.EnemyDestroyed();
+        }
+
+        // Código original para instanciar Lootbag
+        Lootbag lootbagComponent;
+        if (TryGetComponent(out lootbagComponent))
+        {
+            lootbagComponent.InstantiateLoot(transform.position);
         }
         else
         {
             Debug.LogError("No Lootbag component found on this GameObject or its parents.");
-        }        
+        }
+    }
+
+    // Método opcional para ser llamado manualmente si el EnemySpawner necesita saber
+    public void NotifyEnemyDestroyed()
+    {
+        if (spawner != null)
+        {
+            spawner.EnemyDestroyed();
+        }
     }
 }
