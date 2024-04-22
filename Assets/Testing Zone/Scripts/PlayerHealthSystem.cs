@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerHealthSystem : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
     public Color originalColor;
     public Color damageColor;
     public float damageFlashTime = 0.2f;
@@ -66,7 +66,7 @@ public class PlayerHealthSystem : MonoBehaviour
     IEnumerator InvulnerabilityTimer()
     {
         isInvincible = true;
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
         isInvincible = false;
         Debug.Log("isInvincible");
     }
