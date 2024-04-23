@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayer; // Capa de los enemigos
 
     private Animator anim; // Referencia al Animator
+    private bool isAttacking = false; // Flag para controlar si el jugador está atacando
+    public float attackCooldown = 1f; // Tiempo de espera antes de otro ataque
 
     private void Start()
     {
@@ -16,36 +20,28 @@ public class PlayerCombat : MonoBehaviour
     // Método para detectar y atacar a los enemigos
     public void Attack()
     {
+        // Si ya está atacando o está en cooldown, salir del método
+        if (isAttacking)
+            return;
+
         // Activar la animación de Ataque en el Animator
         anim.SetBool("Ataque", true);
 
-        // Obtener la dirección en la que mira el personaje
-        Vector3 attackDirection = transform.forward;
+        // Marcar que el jugador está atacando
+        isAttacking = true;
 
+        // Iniciar el cooldown del ataque
+        StartCoroutine(AttackCooldown());
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        // Esperar el tiempo de cooldown
+        yield return new WaitForSeconds(attackCooldown);
+
+        // Reiniciar la bandera de ataque y desactivar la animación
+        isAttacking = false;
         anim.SetBool("Ataque", false);
-
-        // Detectar los enemigos en el rango de ataque
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
-
-        // Aplicar daño a los enemigos detectados
-        foreach (Collider enemy in hitEnemies)
-        {
-            // Calcular la dirección al enemigo desde el jugador
-            Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
-
-            // Calcular el ángulo entre la dirección de ataque y la dirección al enemigo
-            float angle = Vector3.Angle(attackDirection, directionToEnemy);
-
-            // Si el ángulo es menor que 90 grados, el enemigo está en frente del jugador y puede ser atacado
-            if (angle < 90f)
-            {
-                EnemyHealthSystem enemyHealth = enemy.GetComponent<EnemyHealthSystem>();
-                if (enemyHealth != null)
-                {
-                    enemyHealth.TakeDamage(damage);
-                }
-            }
-        }
     }
 
     // Dibujar gizmos para visualizar el rango de ataque en el editor
