@@ -154,6 +154,7 @@ public class InputController : MonoBehaviour
 
     IEnumerator Dash()
     {
+
         if (isDashing) yield break; // Si ya se está realizando un dash o el jugador no está en movimiento, sale del método
 
         isDashing = true; // Indica que se está realizando un dash
@@ -161,15 +162,10 @@ public class InputController : MonoBehaviour
         // Activar la animación de Esquivar al comenzar el dash
         anim.SetBool("Esquivar", true);
 
-        // Esperar hasta que la animación de Esquivar termine (la variable "Esquivar" vuelva a ser false)
-        while (anim.GetBool("Esquivar"))
-        {
-            // Desactivar las acciones de movimiento al comenzar el dash
-            moveAction.Disable();
-        }
-
-    // Espera a que termine la animación de Esquivar
-    yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
+        // Desactivar las acciones de movimiento al comenzar el dash
+        moveAction.Disable();
+        // Espera a que termine la animación de Esquivar
+        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
 
         // Desactivar la animación de Esquivar al finalizar el dash
         anim.SetBool("Esquivar", false);
