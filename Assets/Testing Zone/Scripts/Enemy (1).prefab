@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6981058133942071751}
   - component: {fileID: 7538218845968262418}
   - component: {fileID: 4494397869347708421}
+  - component: {fileID: -1617828864250909190}
   m_Layer: 6
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_Children:
   - {fileID: 383404158985288449}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &8559475598914303857
 NavMeshAgent:
@@ -201,6 +202,24 @@ MonoBehaviour:
   originalColor: {r: 1, g: 1, b: 1, a: 0}
   damageColor: {r: 1, g: 0, b: 0, a: 0}
   damageFlashTime: 0.2
+--- !u!114 &-1617828864250909190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512138846758370296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb73984094eb2c4fa1b6b992c4d4c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootPrefabList:
+  - {fileID: 3280465284715373976, guid: c740e88670231694ebc855e9b8481943, type: 3}
+  - {fileID: 6522348100253143171, guid: 7bb5c0057697c314a922be1ece0da1f8, type: 3}
+  - {fileID: 5033252748834819443, guid: 827691e208121774ab1dce57cf998fa6, type: 3}
+  - {fileID: 5208789204620927208, guid: 28732ece288a7634986ed5965631ed1a, type: 3}
+  - {fileID: 4585009462750722733, guid: f3fbcd7994cc8834fa2973b5ffe06efe, type: 3}
 --- !u!1 &8409266874895332731
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,12 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb73984094eb2c4fa1b6b992c4d4c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootPrefabList:
-  - {fileID: 3280465284715373976, guid: c740e88670231694ebc855e9b8481943, type: 3}
-  - {fileID: 6522348100253143171, guid: 7bb5c0057697c314a922be1ece0da1f8, type: 3}
-  - {fileID: 5033252748834819443, guid: 827691e208121774ab1dce57cf998fa6, type: 3}
-  - {fileID: 5208789204620927208, guid: 28732ece288a7634986ed5965631ed1a, type: 3}
-  - {fileID: 4585009462750722733, guid: f3fbcd7994cc8834fa2973b5ffe06efe, type: 3}
+  lootPrefabList: []
 --- !u!54 &2639061414093702743
 Rigidbody:
   m_ObjectHideFlags: 0
