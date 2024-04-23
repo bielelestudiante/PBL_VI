@@ -126,13 +126,9 @@ public class InputController : MonoBehaviour
             isMoving = true;
 
             // Calcula la rotación hacia la dirección del movimiento
-           // Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            // Interpola suavemente la rotación actual hacia la rotación objetivo
-           // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-
-            Vector3 look = transform.position + moveDirection;
-            look.y = transform.position.y;
-            transform.LookAt(look);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            //Interpola suavemente la rotación actual hacia la rotación objetivo
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
             
 
@@ -165,10 +161,15 @@ public class InputController : MonoBehaviour
         // Activar la animación de Esquivar al comenzar el dash
         anim.SetBool("Esquivar", true);
 
-        // Desactivar las acciones de movimiento al comenzar el dash
-        moveAction.Disable();
-        // Espera a que termine la animación de Esquivar
-        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
+        // Esperar hasta que la animación de Esquivar termine (la variable "Esquivar" vuelva a ser false)
+        while (anim.GetBool("Esquivar"))
+        {
+            // Desactivar las acciones de movimiento al comenzar el dash
+            moveAction.Disable();
+        }
+
+    // Espera a que termine la animación de Esquivar
+    yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
 
         // Desactivar la animación de Esquivar al finalizar el dash
         anim.SetBool("Esquivar", false);
