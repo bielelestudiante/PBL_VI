@@ -18,6 +18,11 @@ public class PlayerHealthSystem : MonoBehaviour
 
     public bool isInvincible = false;
 
+    public LayerMask WhatIsHealing;
+    public Transform GroundChecker;
+    public float groundSphereRadius = 0.5f;
+    public DrugBar drugBar;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -42,6 +47,17 @@ public class PlayerHealthSystem : MonoBehaviour
         {
             myMaterial.color = originalColor;
         }
+
+        if (IsHealing())
+        {
+            drugBar.drogaActual = 100f;
+        }
+    }
+
+    private bool IsHealing()
+    {
+        return Physics.CheckSphere(
+            GroundChecker.position, groundSphereRadius, WhatIsHealing );
     }
 
     public void PlayerTakesDamage(int damage)
