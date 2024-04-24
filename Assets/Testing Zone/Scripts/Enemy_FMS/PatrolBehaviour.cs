@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatrolBehaviour : BaseBehaviour
 {
     float _timer;
-    private float Speed = 2;
+    private float Speed = 1;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

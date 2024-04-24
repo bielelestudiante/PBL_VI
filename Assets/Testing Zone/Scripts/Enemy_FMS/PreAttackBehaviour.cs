@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PreattackBehaviour : BaseBehaviour
 {
-    private float CloseSpeed = 6;
+    private float CloseSpeed = 4;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,8 +18,6 @@ public class PreattackBehaviour : BaseBehaviour
         animator.SetBool("IsPlayerClose", isPlayerClose);
         bool isReachable = CheckPlayer3(animator.transform);
         animator.SetBool("IsAttacking", isReachable);
-
-
 
         Move(animator.transform);
     }

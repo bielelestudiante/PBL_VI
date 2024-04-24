@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ChaseBehaviour : BaseBehaviour
 {
-    private float ChaseSpeed = 4;
+    public float ChaseSpeed = 4;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

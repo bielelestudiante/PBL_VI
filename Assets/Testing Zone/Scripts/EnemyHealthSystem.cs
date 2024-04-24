@@ -10,7 +10,7 @@ public class EnemyHealthSystem : MonoBehaviour
     public float damageFlashTime = 0.2f;
 
     private Material myMaterial;
-    private float flashTimer;
+    private Animator animator;
 
     // Evento para notificar cuando un enemigo es destruido
     public event Action OnEnemyDestroyed;
@@ -20,6 +20,8 @@ public class EnemyHealthSystem : MonoBehaviour
         currentHealth = maxHealth;
         myMaterial = GetComponent<Renderer>().material;
         originalColor = myMaterial.color;
+
+        animator = GetComponent<Animator>();
 
         // Obtener referencia al EnemySpawner usando FindObjectOfType
         EnemySpawner spawner = FindFirstObjectByType<EnemySpawner>();
@@ -35,15 +37,6 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (flashTimer > 0)
-        {
-            flashTimer -= Time.deltaTime;
-            myMaterial.color = damageColor;
-        }
-        else
-        {
-            myMaterial.color = originalColor;
-        }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -54,11 +47,12 @@ public class EnemyHealthSystem : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log("Infligiendo daño al enemigo.");
         if (currentHealth <= 0)
         {
+            Debug.Log("matando.");
             Die();
         }
-        flashTimer = damageFlashTime;
     }
 
     private void Die()
@@ -67,6 +61,13 @@ public class EnemyHealthSystem : MonoBehaviour
 
         // Llamar al evento OnEnemyDestroyed
         OnEnemyDestroyed?.Invoke();
+
+        // Activar la animación de muerte en el Animator
+        animator.SetBool("Die",true);
+        animator.SetBool("IsChasing", false);
+        animator.SetBool("IsPlayerClose", false);
+        animator.SetBool("IsPatrolling", false);
+        animator.SetBool("IsAttacking", false);
 
         // Destruir recursivamente el GameObject y todos sus hijos
         DestroyRecursive(gameObject);
