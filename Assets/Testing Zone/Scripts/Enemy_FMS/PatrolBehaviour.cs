@@ -20,8 +20,17 @@ public class PatrolBehaviour : BaseBehaviour
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Verificar si el enemigo está muerto
+        EnemyHealthSystem enemyHealth = animator.GetComponent<EnemyHealthSystem>();
+        if (enemyHealth != null && enemyHealth.IsDead)
+        {
+            // Detener el comportamiento de patrulla si el enemigo está muerto
+            return;
+        }
+
         // Check triggers
         bool isTimeUp = CheckTime();
         bool isPlayerClose = CheckPlayer(animator.transform);
@@ -32,6 +41,7 @@ public class PatrolBehaviour : BaseBehaviour
         // Do stuff
         Move(animator.transform);
     }
+
 
     private void Move(Transform mySelf)
     {

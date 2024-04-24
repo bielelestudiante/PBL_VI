@@ -58,10 +58,10 @@ public class InputController : MonoBehaviour
         MovePlayer(); // Mueve al personaje en un eje fijo
 
         // Verifica si se ha presionado el botón de dash y realiza el dash si es así
-        if (dashAction.triggered && !isDashing)
-        {
-            StartCoroutine(Dash());
-        }
+        //if (dashAction.triggered && !isDashing)
+        //{
+        //    StartCoroutine(Dash());
+        //}
 
         if (pegarAction.triggered && !isPegando)
         {
@@ -152,34 +152,36 @@ public class InputController : MonoBehaviour
     }
 
 
-    IEnumerator Dash()
-    {
+    ////IEnumerator Dash()
+    ////{
 
-        if (isDashing) yield break; // Si ya se está realizando un dash o el jugador no está en movimiento, sale del método
+    ////    if (isDashing) yield break; // Si ya se está realizando un dash o el jugador no está en movimiento, sale del método
 
-        isDashing = true; // Indica que se está realizando un dash
+    ////    isDashing = true; // Indica que se está realizando un dash
 
-        // Activar la animación de Esquivar al comenzar el dash
-        anim.SetBool("Esquivar", true);
+    ////    // Activar la animación de Esquivar al comenzar el dash
+    ////    anim.SetBool("Esquivar", true);
 
-        // Desactivar las acciones de movimiento al comenzar el dash
-        moveAction.Disable();
-        // Espera a que termine la animación de Esquivar
-        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
+    ////    // Desactivar las acciones de movimiento al comenzar el dash
+    ////    moveAction.Disable();
 
-        // Desactivar la animación de Esquivar al finalizar el dash
-        anim.SetBool("Esquivar", false);
+    ////    if (!isDashing) yield break; // Si ya se está realizando un dash o el jugador no está en movimiento, sale del método
+    ////    // Espera a que termine la animación de Esquivar
+    ////    yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsName("Esquivar"));
 
-        // Espera el tiempo de cooldown antes de permitir otro dash
-        yield return new WaitForSeconds(dashCooldown);
+    ////    // Desactivar la animación de Esquivar al finalizar el dash
+    ////    anim.SetBool("Esquivar", false);
 
-        isDashing = false;
-    }
-    public void OnDashAnimationEnd()
-    {
-        // Reactivar las acciones de movimiento al finalizar el dash
-        moveAction.Enable();
-    }
+    ////    // Espera el tiempo de cooldown antes de permitir otro dash
+    ////    yield return new WaitForSeconds(dashCooldown);
+
+    ////    isDashing = false;
+    ////}
+    ////public void OnDashAnimationEnd()
+    ////{
+    ////    // Reactivar las acciones de movimiento al finalizar el dash
+    ////    moveAction.Enable();
+    ////}
 
 
 

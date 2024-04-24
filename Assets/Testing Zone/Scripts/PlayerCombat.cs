@@ -26,9 +26,6 @@ public class PlayerCombat : MonoBehaviour
         // Activar la animación de Ataque en el Animator
         anim.SetBool("Ataque", true);
 
-        // Activar el collider de ataque
-        attackCollider.enabled = true;
-
         // Marcar que el jugador está atacando
         isAttacking = true;
 
@@ -40,9 +37,6 @@ public class PlayerCombat : MonoBehaviour
     {
         // Esperar el tiempo de cooldown
         yield return new WaitForSeconds(attackCooldown);
-
-        // Desactivar el collider de ataque
-        attackCollider.enabled = false;
 
         // Reiniciar la bandera de ataque y desactivar la animación
         isAttacking = false;

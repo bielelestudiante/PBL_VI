@@ -23,14 +23,23 @@ public class AttackBehaviour : BaseBehaviour
         playerObject = GameObject.FindGameObjectWithTag(playerTag);
     }
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Verificar si el enemigo está muerto
+        EnemyHealthSystem enemyHealth = animator.GetComponent<EnemyHealthSystem>();
+        if (enemyHealth != null && enemyHealth.IsDead)
+        {
+            // Detener el comportamiento de ataque si el enemigo está muerto
+            return;
+        }
+
         bool isPlayerClose = CheckPlayer2(animator.transform);
         animator.SetBool("IsPlayerClose", isPlayerClose);
         bool isReachable = CheckPlayer3(animator.transform);
         animator.SetBool("IsAttacking", isReachable);
 
-        if (isPlayerClose & isReachable)
+        if (isPlayerClose && isReachable)
         {
             playerObject = GameObject.FindGameObjectWithTag(playerTag); // Find player object (consider alternatives)
             if (Time.time - lastAttackTime >= attackCooldown) // Check cooldown
@@ -40,6 +49,7 @@ public class AttackBehaviour : BaseBehaviour
             }
         }
     }
+
     private void AttackPlayer()
     {
         if (playerObject != null)
