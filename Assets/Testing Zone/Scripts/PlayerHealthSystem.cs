@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerHealthSystem : MonoBehaviour
     public Transform GroundChecker;
     public float groundSphereRadius = 0.5f;
     public DrugBar drugBar;
+    public Transform Respawn;
 
     private void Start()
     {
@@ -36,7 +38,7 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            PlayerTakesDamage(25);
+            PlayerTakesDamage(100);
         }
         if (flashTimer > 0)
         {
@@ -89,6 +91,6 @@ public class PlayerHealthSystem : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        SceneManager.LoadScene("Testing Zone");
     }
 }
