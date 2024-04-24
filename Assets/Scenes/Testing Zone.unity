@@ -1907,7 +1907,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212238920}
-  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
+  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
   m_LocalPosition: {x: 81.55, y: 27.463, z: -38.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4818,7 +4818,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3014937882001165872, guid: e378145f3685131408d52be34b1daefc, type: 3}
 --- !u!1 &1070685513
@@ -6682,7 +6682,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520161713}
-  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
+  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
   m_LocalPosition: {x: 81.55, y: 27.463, z: -38.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
