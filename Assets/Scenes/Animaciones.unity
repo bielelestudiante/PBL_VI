@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4605.803, g: 3252.4048, b: 3222.1255, a: 1}
+  m_IndirectSpecularColor: {r: 4396.067, g: 3199.233, b: 3510.6138, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -569,6 +569,13 @@ MonoBehaviour:
   damageFlashTime: 0.2
   healthBar: {fileID: 0}
   isInvincible: 1
+  WhatIsHealing:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundChecker: {fileID: 0}
+  groundSphereRadius: 0.5
+  drugBar: {fileID: 0}
+  Respawn: {fileID: 0}
 --- !u!81 &533114511
 AudioListener:
   m_ObjectHideFlags: 0
@@ -625,10 +632,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  attackRange: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  attackCollider: {fileID: 0}
   attackCooldown: 1
 --- !u!54 &533114515
 Rigidbody:
@@ -1174,6 +1181,13 @@ MonoBehaviour:
   damageFlashTime: 0.2
   healthBar: {fileID: 0}
   isInvincible: 1
+  WhatIsHealing:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundChecker: {fileID: 0}
+  groundSphereRadius: 0.5
+  drugBar: {fileID: 0}
+  Respawn: {fileID: 0}
 --- !u!81 &1443855746
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1230,10 +1244,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  attackRange: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  attackCollider: {fileID: 0}
   attackCooldown: 1
 --- !u!54 &1443855750
 Rigidbody:

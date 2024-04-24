@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4358.9214, g: 3176.9263, b: 3530.5942, a: 1}
+  m_IndirectSpecularColor: {r: 4379.943, g: 3189.9204, b: 3520.8208, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 540576241}
   - component: {fileID: 540576240}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1585,6 +1585,13 @@ MonoBehaviour:
   damageFlashTime: 0.2
   healthBar: {fileID: 0}
   isInvincible: 0
+  WhatIsHealing:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundChecker: {fileID: 0}
+  groundSphereRadius: 0.5
+  drugBar: {fileID: 0}
+  Respawn: {fileID: 0}
 --- !u!114 &1907978747
 MonoBehaviour:
   m_ObjectHideFlags: 0
