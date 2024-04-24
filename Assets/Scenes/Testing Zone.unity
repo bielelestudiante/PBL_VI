@@ -5303,7 +5303,7 @@ GameObject:
   - component: {fileID: 1117208809}
   - component: {fileID: 1117208808}
   m_Layer: 8
-  m_Name: Plane
+  m_Name: "Curaci\xF3n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
