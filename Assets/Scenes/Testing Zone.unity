@@ -2003,11 +2003,6 @@ MonoBehaviour:
   forceMultiplier: 2
   dashCooldown: 2
   rotationSpeed: 7
---- !u!4 &129336672 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
-  m_PrefabInstance: {fileID: 1917242020}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &147802745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,8 +2216,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212238920}
-  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
-  m_LocalPosition: {x: 82.67, y: 25.167, z: -37.47}
+  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
+  m_LocalPosition: {x: 81.55, y: 27.463, z: -38.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3401,7 +3396,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldown: 1
+  attackCooldown: 0.5
 --- !u!114 &584171065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3528,7 +3523,7 @@ MonoBehaviour:
   gravity: 9.81
   forceMultiplier: 2
   dashCooldown: 2
-  rotationSpeed: 7
+  rotationSpeed: 10
 --- !u!4 &584171071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
@@ -6480,7 +6475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       propertyPath: m_TagString
@@ -6746,8 +6741,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520161713}
-  m_LocalRotation: {x: 0.35641432, y: 0.00000001607641, z: -0.0000000061326024, w: 0.934328}
-  m_LocalPosition: {x: 82.67, y: 25.167, z: -37.47}
+  m_LocalRotation: {x: 0.35641432, y: -0.000000016076397, z: 0.0000000061325984, w: 0.934328}
+  m_LocalPosition: {x: 81.55, y: 27.463, z: -38.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6773,8 +6768,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 1
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 129336672}
-  m_Follow: {fileID: 129336672}
+  m_LookAt: {fileID: 584171071}
+  m_Follow: {fileID: 584171071}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -8416,6 +8411,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -8943,6 +8942,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1005734178450560018, guid: f96b2dd7e58409e4aa77d33def181632, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e9d47d97857257847b3e9294bc79089b, type: 3}
     - target: {fileID: 1109637074868354077, guid: f96b2dd7e58409e4aa77d33def181632, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -8994,11 +8997,11 @@ PrefabInstance:
     - target: {fileID: 9021148869661281655, guid: f96b2dd7e58409e4aa77d33def181632, type: 3}
       propertyPath: TrackerTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 584171071}
     - target: {fileID: 9021148869661281655, guid: f96b2dd7e58409e4aa77d33def181632, type: 3}
       propertyPath: movePositionTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 584171071}
     - target: {fileID: 9216855149317539047, guid: f96b2dd7e58409e4aa77d33def181632, type: 3}
       propertyPath: _player
       value: 
