@@ -850,7 +850,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: "pu\xF1o1 0"
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5501872981574009189}
@@ -864,7 +864,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dcb26e554be45ae4a8715bc4156e72b8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9bacdd86930c1714c9a6879d16155971, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4611.0083, g: 3256.2603, b: 3225.1333, a: 1}
+  m_IndirectSpecularColor: {r: 4609.9175, g: 3255.4517, b: 3224.4888, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -351,55 +351,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 47.107174
+      value: 47.10716
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 47.10722
+      value: 47.107227
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 47.107212
+      value: 47.10721
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.303
+      value: 0.255
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: 0.042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.456
+      value: 0.252
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2553478
+      value: 0.32073936
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.093203835
+      value: -0.45972425
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.95213753
+      value: -0.78611344
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13980213
+      value: 0.26039526
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 12.628
+      value: 6.575
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -148.331
+      value: -131.529
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 14.777
+      value: 63.601
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2e21c6b6140ed954cb423f497488cac8, type: 3}
       propertyPath: m_Name
@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       propertyPath: m_Name
-      value: TPSOE (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       propertyPath: m_TagString
@@ -607,9 +607,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1443855752}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1443855751}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe882b687fce43145acfb05ccc6e0348, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1443855750}
@@ -1305,18 +1302,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 2
---- !u!114 &1443855751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443855743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7237826d0ba984a40a4a7487c4f325eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1443855752
 MeshRenderer:
   m_ObjectHideFlags: 0
