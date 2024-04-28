@@ -14,8 +14,17 @@ public class ChaseBehaviour : BaseBehaviour
         base.OnStateEnter(animator, stateInfo, layerIndex);
     }
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Verificar si el enemigo está muerto
+        EnemyHealthSystem enemyHealth = animator.GetComponent<EnemyHealthSystem>();
+        if (enemyHealth != null && enemyHealth.IsDead)
+        {
+            // Detener el comportamiento de persecución si el enemigo está muerto
+            return;
+        }
+
         bool isChasing = CheckPlayer(animator.transform);
         animator.SetBool("IsChasing", isChasing);
         bool isPlayerClose = CheckPlayer2(animator.transform);
@@ -23,6 +32,7 @@ public class ChaseBehaviour : BaseBehaviour
 
         Move(animator.transform);
     }
+
     private void Move(Transform mySelf)
     {
         Vector3 PlayerPos = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z);

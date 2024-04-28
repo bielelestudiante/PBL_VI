@@ -18,17 +18,25 @@ public class PostattackBehaviour : BaseBehaviour
         base.OnStateEnter(animator, stateInfo, layerIndex);
     }
 
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Verificar si el enemigo está muerto
+        EnemyHealthSystem enemyHealth = animator.GetComponent<EnemyHealthSystem>();
+        if (enemyHealth != null && enemyHealth.IsDead)
+        {
+            // Detener el comportamiento de postataque si el enemigo está muerto
+            return;
+        }
+
         bool isPlayerClose = CheckPlayer2(animator.transform);
         animator.SetBool("IsPlayerClose", isPlayerClose);
         bool isReachable = CheckPlayer3(animator.transform);
         animator.SetBool("IsAttacking", isReachable);
 
-
-
         Hold(animator.transform);
     }
+
 
     private void Hold(Transform transform)
     {

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TutorialController : MonoBehaviour
 {
     public GameObject pantallaTutorial1;
     public GameObject pantallaTutorial2;
 
+
     private bool tutorial1Visible = true;
+
 
     void Update()
     {

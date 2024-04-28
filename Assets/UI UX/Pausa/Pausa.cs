@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class GestorPausa : MonoBehaviour
+
+public class rPausa : MonoBehaviour
 {
     public GameObject pausaPanel;
 
+
     private bool juegoEnPausa = false;
+
 
     void Start()
     {
         // Al iniciar el juego, ocultamos el panel de pausa
         pausaPanel.SetActive(false);
     }
+
 
     void Update()
     {
@@ -30,12 +34,14 @@ public class GestorPausa : MonoBehaviour
         }
     }
 
+
     void PausarJuego()
     {
         juegoEnPausa = true;
         pausaPanel.SetActive(true);
         Time.timeScale = 0f; // Pausar el tiempo del juego
     }
+
 
     void ReanudarJuego()
     {
@@ -44,3 +50,5 @@ public class GestorPausa : MonoBehaviour
         Time.timeScale = 1f; // Reanudar el tiempo del juego
     }
 }
+
+

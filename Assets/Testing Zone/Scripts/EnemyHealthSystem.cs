@@ -8,6 +8,7 @@ public class EnemyHealthSystem : MonoBehaviour
     public Color originalColor;
     public Color damageColor;
     public float damageFlashTime = 0.2f;
+    public bool IsDead { get; private set; }
 
     private Material myMaterial;
     private Animator animator;
@@ -37,10 +38,10 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private void Update()
     {
-
+        animator = GetComponent<Animator>();
         if (Input.GetKeyDown(KeyCode.I))
         {
-            Die();
+            Dead();
         }
     }
 
@@ -51,36 +52,51 @@ public class EnemyHealthSystem : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("matando.");
-            Die();
+            Dead();
         }
     }
 
-    private void Die()
+    private void Dead()
     {
+        IsDead = true;
         Debug.Log("Enemy died.");
 
         // Llamar al evento OnEnemyDestroyed
         OnEnemyDestroyed?.Invoke();
 
+        // Desactivar cualquier componente de movimiento o comportamiento
+        // por ejemplo, si tienes un componente de persecución o ataque, desactívalos aquí
+        GetComponent<EnemyNavMesh>().enabled = false;
+
+        // Desactivar IdleBehaviour
+        IdleBehaviour idleBehaviour = animator.GetBehaviour<IdleBehaviour>();
+        if (idleBehaviour != null)
+        {
+            idleBehaviour.enabled = false;
+        }
+
+        //GetComponent<ChaseBehaviour>().enabled = false;
+
         // Activar la animación de muerte en el Animator
-        animator.SetBool("Die",true);
+        animator.SetBool("Die", true);
         animator.SetBool("IsChasing", false);
         animator.SetBool("IsPlayerClose", false);
         animator.SetBool("IsPatrolling", false);
         animator.SetBool("IsAttacking", false);
 
         // Destruir recursivamente el GameObject y todos sus hijos
-        DestroyRecursive(gameObject);
+        // Esto se ha comentado porque parece que ya no quieres destruir el objeto
+        //DestroyRecursive(gameObject);
 
         // Código original para instanciar Lootbag
-        Lootbag lootbagComponent;
-        if (TryGetComponent(out lootbagComponent))
+        Lootbag lootbagComponent = GetComponent<Lootbag>();
+        if (lootbagComponent != null)
         {
             lootbagComponent.InstantiateLoot(transform.position);
         }
         else
         {
-            Debug.LogError("No Lootbag component found on this GameObject or its parents.");
+            Debug.LogError("No Lootbag component found on this GameObject.");
         }
     }
 
